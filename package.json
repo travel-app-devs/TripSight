@@ -1,0 +1,23 @@
+{
+  "name": "traveldiary",
+  "version": "1.0.0",
+  "description": "an one-stop decentralized travel blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travel-app-devs/travelDiary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/travel-app-devs/travelDiary/issues"
+  },
+  "homepage": "https://github.com/travel-app-devs/travelDiary#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
