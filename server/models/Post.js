@@ -16,22 +16,17 @@ const PostSchema = new Schema({
         type: String,
         required: false,
     },
-    bodyImageLinks: {
+    bodyImageLinks: [{
         type: String,
         required: false,
-    },
+    }],
     latitude: {
-        type: String,
+        type: Number,
         required: true,
     },
     longitude: {
-        type: String,
+        type: Number,
         required: true,
-    },
-    password: {
-        type: String,
-        required: true,
-        minlength: 5,
     },
     userInfo: {
         userId: {

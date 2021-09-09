@@ -2,7 +2,6 @@ const express = require("express");
 const logger = require("morgan");
 const path = require('path');
 const db = require('./config/connection')
-const routes = require('./routes')
 const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
@@ -22,7 +21,6 @@ app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes)
 app.use(cors({
     origin: 'http://localhost:3000'
 }))
