@@ -91,8 +91,40 @@ const typeDefs = gql`
             pinned: Boolean
         }
     ): Post
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    updateUser(
+        username: String! 
+        email: String! 
+        password: String!
+        firstName: String
+        lastName: String
+        profPicLink: String
+        bio: String
+        date: Date
+    ): Auth
+    updateAlbum(
+        title: String!
+        imageLink: String
+        description: String
+        userInfo: {
+            userId: User
+            pinned: Boolean
+        }
+    ): Album
+    updatePost(
+        title: String! 
+        titleImageLink: String
+        textBody: String
+        bodyImageLinks: [String]
+        latitude: Number!
+        longitude: Number!
+        description: String
+        userInfo: {
+            userId: User
+            pinned: Boolean
+        }
+    ): Post
+    removePost(_id: ID!): Post
+    removeAlbum(_id: ID!): Album
   }
 `;
 
