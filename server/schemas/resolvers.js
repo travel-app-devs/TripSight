@@ -25,10 +25,10 @@ const resolvers = {
     },
     userPosts: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Post.find(userInfo[params]);
+      return Post.find(params);
     },
-    albumPosts: async (parent, { id }) => {
-      const params = userInfo[id] ? userInfo[id] : {};
+    albumPosts: async (parent, { userId }) => {
+      const params = userId ? userId : {};
       return Post.find(params);
     },
     userAlbums: async (parent, { _id }) => {
