@@ -45,6 +45,7 @@ const typeDefs = gql`
     posts: [Post]
     albums: [Album]
     user(_id: ID!): User
+    thisUser(_id: ID!): User
     post(_id: ID!): Post
     album(_id: ID!): Album
     userPosts(userId: ID!): [Post]
