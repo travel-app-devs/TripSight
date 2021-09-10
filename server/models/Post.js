@@ -20,6 +20,10 @@ const PostSchema = new Schema({
         type: String,
         required: false,
     }],
+    postVid: {
+        type: String,
+        required: false
+    },
     latitude: {
         type: Number,
         required: true,
@@ -28,7 +32,7 @@ const PostSchema = new Schema({
         type: Number,
         required: true,
     },
-    userInfo: {
+    userInfo: [{
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User'
@@ -37,7 +41,7 @@ const PostSchema = new Schema({
             type: Boolean,
             default: false,
         }
-    },
+    }],
     albumID: {
         type: Schema.Types.ObjectId,
         ref: 'Album'
