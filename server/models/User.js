@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-require('mongoose-type-url');
 
 // Create Schema
 const UserSchema = new Schema({
@@ -44,11 +43,7 @@ const UserSchema = new Schema({
     favorites: [{
         type: Schema.Types.ObjectId,
         ref: 'Post'
-    }],
-    date: {
-        type: Date,
-        default: Date.now
-    }
+    }]
 });
 
 module.exports = User = mongoose.model('User', UserSchema);

@@ -32,16 +32,14 @@ const PostSchema = new Schema({
         type: Number,
         required: true,
     },
-    userInfo: [{
-        userId: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        },
-        pinned: {
-            type: Boolean,
-            default: false,
-        }
-    }],
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    pinned: {
+        type: Boolean,
+        default: false,
+    },
     albumID: {
         type: Schema.Types.ObjectId,
         ref: 'Album'

@@ -19,16 +19,15 @@ const AlbumSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Post'
     }],
-    userInfo: [{
-        userId: {
+    userId: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
-        pinned: {
+    pinned: {
             type: Boolean,
             default: false,
         }
-    }]
-});
+    }
+);
 
 module.exports = Album = mongoose.model('Album', AlbumSchema);
