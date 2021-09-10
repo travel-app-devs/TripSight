@@ -31,6 +31,7 @@ const typeDefs = gql`
     title: String!
     titleImageLink: String
     bodyImageLinks: [String]
+    postVid: String
     latitude: Number!
     longitude: Number!
     userInfo: {
@@ -83,6 +84,7 @@ const typeDefs = gql`
         titleImageLink: String
         textBody: String
         bodyImageLinks: [String]
+        postVid: String
         latitude: Number!
         longitude: Number!
         description: String
@@ -115,6 +117,7 @@ const typeDefs = gql`
         titleImageLink: String
         textBody: String
         bodyImageLinks: [String]
+        postVid: String
         latitude: Number!
         longitude: Number!
         description: String

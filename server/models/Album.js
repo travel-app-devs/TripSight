@@ -19,7 +19,7 @@ const AlbumSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Post'
     }],
-    userInfo: {
+    userInfo: [{
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User'
@@ -28,7 +28,7 @@ const AlbumSchema = new Schema({
             type: Boolean,
             default: false,
         }
-    }
+    }]
 });
 
 module.exports = Album = mongoose.model('Album', AlbumSchema);
