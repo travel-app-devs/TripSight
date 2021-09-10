@@ -58,10 +58,6 @@ const typeDefs = gql`
         username: String! 
         email: String! 
         password: String!
-        firstName: String
-        lastName: String
-        profPicLink: String
-        bio: String
     ): Auth
     login(email: String! password: String!): Auth
     addAlbum(
