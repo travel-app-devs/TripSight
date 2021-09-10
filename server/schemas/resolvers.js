@@ -1,4 +1,6 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Post, Album } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -6,14 +8,20 @@ const resolvers = {
       return User.find({});
     },
     posts: async () => {
-        return Post.find({});
+      return Post.find({});
     },
     albums: async () => {
-        return Album.find({});
+      return Album.find({});
     },
     user: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return User.find(params);
+    },
+    thisUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     post: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
@@ -37,31 +45,27 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
-      return User.create(
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      )
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password })
+      const token = signToken(user);
+      return { token, user };
     },
+
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email })
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('No User Found')
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password)
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect Password')
       }
 
       const token = signToken(user);
-
-      return { token, user };
+      return { token, user }
     },
     addPost: async (parent, args) => {
       return Post.create(
@@ -81,35 +85,38 @@ const resolvers = {
         }
       )
     },
-    updateUser: async (parent, args) => {
-      return User.findOneAndUpdate(
-        { _id: args.id },
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        const updated = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          args,
+          { new: true }
+        );
+        return updated;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     updatePost: async (parent, args) => {
-      return Post.findOneAndUpdate(
-        { _id: args.id },
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+      if (context.user) {
+        const updated = await Post.findOneAndUpdate(
+          { userId: context.user._id },
+          args,
+          { new: true }
+        );
+        return updated;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     updateAlbum: async (parent, args) => {
-      return Album.findOneAndUpdate(
-        { _id: args.id },
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+      if (context.user) {
+        const updated = await Album.findOneAndUpdate(
+          { userId: context.user._id },
+          args,
+          { new: true }
+        );
+        return updated;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     }
   }
 };
