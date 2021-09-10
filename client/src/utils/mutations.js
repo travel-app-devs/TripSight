@@ -23,3 +23,27 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_ALBUM = gql`
+    mutation addAlbum($title: String!, $imageLink: String, $description: String, $userId: String!) {
+        addAlbum(title: $title, imageLink: $imageLink, description: $description, userId: $userId) {
+            token
+            user {
+                _id
+                username
+            }
+        }
+    }
+`;
+
+export const ADD_POST = gql`
+    mutation addPost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $latitude: Int!, $longitude: Int!, $description: String, $userId: String!, $pinned: Boolean) {
+        addPost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned) {
+            token
+            user {
+                _id
+                username
+            }
+        }
+    }
+`;
