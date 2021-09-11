@@ -1,5 +1,10 @@
 import style from './style.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import Auth from '../../utils/auth'
+
+import { useMutation } from '@appollo/client'
+import { ADD_POST } from '../../utils/mutations'
+import { QUERY_USERPOSTS } from '../../utils/queries'
 
 export default function Form () {
     const [ titleInput, setTitleInput ] = useState('')
@@ -13,6 +18,22 @@ export default function Form () {
 
     const [titleCharacterCount, setTitleCharacterCount] = useState(0);
     const [postCharacterCount, setPostCharacterCount] = useState(0);
+
+    const [ addPost, { error }] = useMutation(ADD_POST, {
+        update(cache, { data: { addPost } }) {
+            try {
+                const { userPosts } = cache.readQuery({ query: QUERY_USERPOSTS })
+                
+                cache.writeQuery({
+                    query: QUERY_USERPOSTS,
+                    data: { userPosts: [addPost, ...userPosts] },
+                })
+                
+            } catch (err) {
+                console.error(err)
+            }
+        }
+    })
 
     const handleChangeTitle = (event) => {
         const { name, value } = event.target
@@ -66,19 +87,36 @@ export default function Form () {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
+        const userId = Auth.getProfile().data.userId
         let sepTags = tagsInput.split(',')
         let sepLinks = bodyImageLink.split(',')
         const tagsArray = sepTags.map(tag => tag.trim())
         const linksArray = sepLinks.map(link => link.trim())
-        setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink})
-        console.log(post)
+        setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink, userId: userId})
+        try {
+            const { data } = await addPost({
+                variables: {
+                    title: post.title,
+                    textBody: post.textBody,
+                    tags: post.tags,
+                    titleImageLink: post.titleImageLink,
+                    bodyImageLinks: post.bodyImageLink,
+                    postVid: post.postVid,
+                    userId: post.userId
+                }
+            })
+            console.log(post)
 
-        setTitleInput('')
-        setPostInput('')
-        setTagsInput('')
-        setTitleLinksInput('')
-        setBodyLinksInput('')
-        setVidLinksInput('')
+            setTitleInput('')
+            setPostInput('')
+            setTagsInput('')
+            setTitleLinksInput('')
+            setBodyLinksInput('')
+            setVidLinksInput('')
+        } catch (err) {
+            console.log(err)
+        }
+
     }
     // useEffect(()=>console.log(tagsInput))
     // useEffect(()=>console.log(post))
