@@ -40,6 +40,9 @@ const PostSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    tags: {
+        type: String
+    },
     albumID: {
         type: Schema.Types.ObjectId,
         ref: 'Album'
