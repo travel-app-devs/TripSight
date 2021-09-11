@@ -7,10 +7,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import Hero from './component/hero';
-import NewPost from './pages/NewPost';
+import Home from './pages/home';
+import Signup from './pages/Signup'
 import Login from './pages/Login'
 
 // Construct our main GraphQL API endpoint
@@ -39,11 +39,34 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <Hero />
-        <NewPost />
-        <Login />
-      </div>
+      <Router>
+        <div className="App">
+          <Link to='/'></Link>
+
+        <Switch>
+          <Route exact path='/'>
+            {/* <Header /> */}
+            <Home />
+            {/* <Footer /> */}
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          {/* <Route exact path="/me">
+            <Profile />
+          </Route>
+          <Route exact path="/profiles/:username">
+            <Profile />
+          </Route>
+          <Route exact path="/posts/:postId">
+            <SinglePost />
+          </Route> */}
+        </Switch>
+        </div>
+      </Router>
     </ApolloProvider>
 
   );
