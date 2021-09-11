@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 export default function Form () {
     const [ titleInput, setTitleInput ] = useState('')
     const [ tagsInput, setTagsInput ] = useState('')
-    const [ linksInput, setLinksInput ] = useState('')
+    const [ titleImageLink, setTitleLinksInput ] = useState('')
+    const [ bodyImageLink, setBodyLinksInput ] = useState('')
+    const [ postVidLink, setVidLinksInput ] = useState('')
     const [ postInput, setPostInput ] = useState('')
 
     const [ post, setPost ] = useState({title: '', tags:[], titleImageLink: '', bodyImageLink: [], postVid: '', textBody: ''})
@@ -38,21 +40,37 @@ export default function Form () {
         } 
     }
 
-    const handleChangeLink = (event) => {
+    const handleChangeLink1 = (event) => {
         const { name, value } = event.target
 
-        if (name === 'linksInput') {
-            setLinksInput(value);
+        if (name === 'titleImage') {
+            setTitleLinksInput(value);
+        }
+    }
+
+    const handleChangeLink2 = (event) => {
+        const { name, value } = event.target
+
+        if (name === 'bodyImage') {
+            setBodyLinksInput(value);
+        }
+    }
+
+    const handleChangeLink3 = (event) => {
+        const { name, value } = event.target
+
+        if (name === 'postVid') {
+            setVidLinksInput(value);
         }
     }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
         let sepTags = tagsInput.split(',')
-        let sepLinks = linksInput.split(',')
-        sepTags.forEach(tag => tag.trim())
-        sepLinks.forEach(link => link.trim())
-        setPost({title: titleInput, textBody: postInput, tags: sepTags, titleImageLink: linksInput, bodyImageLink: sepLinks, postVid: linksInput})
+        let sepLinks = bodyImageLink.split(',')
+        const tagsArray = sepTags.map(tag => tag.trim())
+        const linksArray = sepLinks.map(link => link.trim())
+        setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink})
         console.log(post)
     }
     useEffect(()=>console.log(tagsInput))
@@ -70,17 +88,17 @@ export default function Form () {
                             <input id='title' name='titleInput' onChange={handleChangeTitle} type='text'></input>
                         </div>
                         <div className={style.tagsInput}>
-                            <label htmlFor='tags'>Tags</label>
-                            <input id='tags' onChange={handleChangeTags} type='text'></input>
+                            <label htmlFor='tags'>Tags (Separate with comma)</label>
+                            <input id='tags' name='tagsInput' onChange={handleChangeTags} type='text'></input>
                         </div>
                         <div className={style.linksInput}>
                             <div>
                                 <label htmlFor='titleImage'>Title Image Link</label>
-                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink} type='text'></input>
-                                <label htmlFor='bodyImage'>Body Image Link</label>
-                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink} type='text'></input>
+                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink1} type='text'></input>
+                                <label htmlFor='bodyImage'>Image Links</label>
+                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink2} type='text'></input>
                                 <label htmlFor='postVid'>Video Link</label>
-                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink} type='text'></input>
+                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink3} type='text'></input>
                             </div>
                         </div>
                     </div>
