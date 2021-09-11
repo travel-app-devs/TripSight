@@ -72,9 +72,16 @@ export default function Form () {
         const linksArray = sepLinks.map(link => link.trim())
         setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink})
         console.log(post)
+
+        setTitleInput('')
+        setPostInput('')
+        setTagsInput('')
+        setTitleLinksInput('')
+        setBodyLinksInput('')
+        setVidLinksInput('')
     }
-    useEffect(()=>console.log(tagsInput))
-    useEffect(()=>console.log(post))
+    // useEffect(()=>console.log(tagsInput))
+    // useEffect(()=>console.log(post))
 
 
     return (
@@ -85,26 +92,26 @@ export default function Form () {
                     <div>
                         <div className={style.titleInput}>
                             <label htmlFor='title'>Title</label>
-                            <input id='title' name='titleInput' onChange={handleChangeTitle} type='text'></input>
+                            <input id='title' name='titleInput' onChange={handleChangeTitle} value={titleInput} type='text'></input>
                         </div>
                         <div className={style.tagsInput}>
                             <label htmlFor='tags'>Tags (Separate with comma)</label>
-                            <input id='tags' name='tagsInput' onChange={handleChangeTags} type='text'></input>
+                            <input id='tags' name='tagsInput' onChange={handleChangeTags} value={tagsInput} type='text'></input>
                         </div>
                         <div className={style.linksInput}>
                             <div>
                                 <label htmlFor='titleImage'>Title Image Link</label>
-                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink1} type='text'></input>
+                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink1} value={titleImageLink} type='text'></input>
                                 <label htmlFor='bodyImage'>Image Links</label>
-                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink2} type='text'></input>
+                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink2} value={bodyImageLink} type='text'></input>
                                 <label htmlFor='postVid'>Video Link</label>
-                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink3} type='text'></input>
+                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink3} value={postVidLink} type='text'></input>
                             </div>
                         </div>
                     </div>
                     <div className={style.postInput}>
                         <label htmlFor='post'>Post</label>
-                        <textarea name='postInput' rows='5' cols='90' id='posts' onChange={handleChangePost} type='text'></textarea>
+                        <textarea name='postInput' rows='5' cols='90' id='posts' onChange={handleChangePost} value={postInput} type='text'></textarea>
                     </div>
                     
                 </form>
