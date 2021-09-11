@@ -2,7 +2,7 @@ import style from './style.module.css'
 import React, { useState } from 'react'
 import Auth from '../../utils/auth'
 
-import { useMutation } from '@appollo/client'
+import { useMutation } from '@apollo/client'
 import { ADD_POST } from '../../utils/mutations'
 import { QUERY_USERPOSTS } from '../../utils/queries'
 
