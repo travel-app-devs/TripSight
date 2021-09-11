@@ -29,6 +29,9 @@ const typeDefs = gql`
     titleImageLink: String
     bodyImageLinks: [String]
     postVid: String
+    description: String
+    pinned: Boolean
+    tags: String
     latitude: Int!
     longitude: Int!
     userId: User
