@@ -1,20 +1,141 @@
 .heroContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/roadtrip.jpg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
 }
 
-.heroContainer img {
-  width: 100%;
-  height: 100%;
+.heroContainer .heroTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  height: 80vh;
 }
 
 .heroContainer .heroTextContainer .heroTextBigHeader {
-  position: absolute;
-  top: 25%;
-  right: 16%;
-  font-size: 5rem;
+  font-size: 10rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #ffc136;
+  font-family: "Roboto", sans-serif;
+  filter: drop-shadow(0.5rem 0.4rem 0.3rem #000);
+  margin: auto;
+  width: 50%;
+}
+
+.heroContainer .heroTextContainer .heroDescriptionContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.heroContainer .heroTextContainer .heroDescriptionContainer .heroTextDescription {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-top: 0rem;
+}
+
+.heroContainer .heroTextContainer .heroForm {
+  width: 100%;
+  text-align: center;
+}
+
+.heroContainer .heroTextContainer .heroForm input {
+  border: none;
+  border-radius: 0.8rem;
+}
+
+.heroContainer .heroTextContainer .heroForm input:focus {
+  background: white;
+  color: black;
+}
+
+.heroContainer .heroTextContainer .heroForm #heroSearchForm {
+  width: 35%;
+  height: 4rem;
+}
+
+.heroContainer .heroTextContainer .heroForm #heroSearchButton {
+  width: 14%;
+  margin-left: 1rem;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  height: 4.2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .heroContainer .heroTextContainer .heroTextBigHeader {
+    font-size: 7rem;
+    margin: auto;
+    width: 80%;
+  }
+  .heroContainer .heroTextContainer .heroDescriptionContainer {
+    width: 80%;
+    margin: auto;
+    padding-top: 1rem;
+  }
+  .heroContainer .heroTextContainer .heroDescriptionContainer .heroTextDescription {
+    font-size: 1.6rem;
+    margin-top: 0rem;
+  }
+  .heroContainer .heroTextContainer .heroForm {
+    width: 100%;
+  }
+  .heroContainer .heroTextContainer .heroForm #heroSearchForm {
+    width: 50%;
+    height: 3.8rem;
+  }
+  .heroContainer .heroTextContainer .heroForm #heroSearchButton {
+    width: 30%;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroContainer .heroTextContainer .heroTextBigHeader {
+    font-size: 7rem;
+    margin: auto;
+    width: 80%;
+  }
+  .heroContainer .heroTextContainer .heroDescriptionContainer {
+    width: 80%;
+    margin: auto;
+    padding-top: 1rem;
+  }
+  .heroContainer .heroTextContainer .heroDescriptionContainer .heroTextDescription {
+    font-size: 1.6rem;
+    margin-top: 0rem;
+  }
+  .heroContainer .heroTextContainer .heroForm {
+    width: 100%;
+    text-align: center;
+  }
+  .heroContainer .heroTextContainer .heroForm input {
+    border: none;
+    border-radius: 0.8rem;
+  }
+  .heroContainer .heroTextContainer .heroForm input:focus {
+    background: white;
+    color: black;
+  }
+  .heroContainer .heroTextContainer .heroForm #heroSearchForm {
+    width: 50%;
+    height: 3.8rem;
+  }
+  .heroContainer .heroTextContainer .heroForm #heroSearchButton {
+    width: 30%;
+    height: 4rem;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */
