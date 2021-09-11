@@ -1,9 +1,20 @@
-import style from './style.module.css';
+import style from "./style.module.css";
+import hero from "../../assets/images/hero-image.png";
 
 const Hero = () => {
-    return(
-    <h1 className={style.header}>Hello World</h1>
-    );
-}
+  return (
+    <div className={style.heroContainer}>
+      <img src={hero} alt="Header Image" />
+      <div className={style.heroTextContainer}>
+          <div>
+              <h1 className={style.heroTextBigHeader}>TravelSight</h1>
+          </div>
+          <div>
+              <p>Find travel recommendations from real people that have been there previously!</p>
+          </div>
+      </div>
+    </div>
+  );
+};
 
-export default Hero
+export default Hero;

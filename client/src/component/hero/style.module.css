@@ -1,4 +1,20 @@
-.header {
-  font-size: 50px;
+.heroContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.heroContainer img {
+  width: 100%;
+  height: 100%;
+}
+
+.heroContainer .heroTextContainer .heroTextBigHeader {
+  position: absolute;
+  top: 25%;
+  right: 16%;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc136;
 }
 /*# sourceMappingURL=style.module.css.map */

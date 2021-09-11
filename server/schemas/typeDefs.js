@@ -11,7 +11,6 @@ const typeDefs = gql`
     profPicLink: String
     bio: String
     favorites: [Post]
-    date: Date
   }
 
   type Album {
@@ -20,10 +19,8 @@ const typeDefs = gql`
     imageLink: String
     description: String
     posts: [Post]!
-    userInfo: {
-        userId: User
-        pinned: Boolean
-    }
+    userId: User
+    pinned: Boolean
   }
 
   type Post {
@@ -32,12 +29,9 @@ const typeDefs = gql`
     titleImageLink: String
     bodyImageLinks: [String]
     postVid: String
-    latitude: Number!
-    longitude: Number!
-    userInfo: {
-        userId: User
-        pinned: Boolean
-    }
+    latitude: Int!
+    longitude: Int!
+    userId: User
     albumId: Album
   }
 
@@ -51,10 +45,11 @@ const typeDefs = gql`
     posts: [Post]
     albums: [Album]
     user(_id: ID!): User
+    thisUser(_id: ID!): User
     post(_id: ID!): Post
     album(_id: ID!): Album
-    userPosts(userInfo: {id: ID!}): [Post]
-    userAlbums(userInfo: {id: ID!}): [Album]
+    userPosts(userId: ID!): [Post]
+    userAlbums(userId: ID!): [Album]
     albumPosts(albumId: ID!): [Post]
   }
 
@@ -63,21 +58,14 @@ const typeDefs = gql`
         username: String! 
         email: String! 
         password: String!
-        firstName: String
-        lastName: String
-        profPicLink: String
-        bio: String
-        date: Date
     ): Auth
     login(email: String! password: String!): Auth
     addAlbum(
         title: String!
         imageLink: String
         description: String
-        userInfo: {
-            userId: User
-            pinned: Boolean
-        }
+        userId: String!
+        pinned: Boolean
     ): Album
     addPost(
         title: String! 
@@ -85,13 +73,12 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Number!
-        longitude: Number!
+        latitude: Int!
+        longitude: Int!
         description: String
-        userInfo: {
-            userId: User
-            pinned: Boolean
-        }
+        userId: String!
+        pinned: Boolean
+        tags: String
     ): Post
     updateUser(
         username: String! 
@@ -101,16 +88,13 @@ const typeDefs = gql`
         lastName: String
         profPicLink: String
         bio: String
-        date: Date
     ): Auth
     updateAlbum(
         title: String!
         imageLink: String
         description: String
-        userInfo: {
-            userId: User
-            pinned: Boolean
-        }
+        userId: String!
+        pinned: Boolean
     ): Album
     updatePost(
         title: String! 
@@ -118,13 +102,12 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Number!
-        longitude: Number!
+        latitude: Int!
+        longitude: Int!
         description: String
-        userInfo: {
-            userId: User
-            pinned: Boolean
-        }
+        userId: String!
+        pinned: Boolean
+        tags: String
     ): Post
     removePost(_id: ID!): Post
     removeAlbum(_id: ID!): Album
