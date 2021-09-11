@@ -58,10 +58,10 @@ export const UPDATE_USER = gql`
             }
         }
     }
-`
+`;
 
 export const UPDATE_ALBUM = gql`
-    mutation updateUser($title: String!, $imageLink: String!, $description: String!, $userId: String, $pinned: Boolean) {
+    mutation updateAlbum($title: String!, $imageLink: String!, $description: String!, $userId: String, $pinned: Boolean) {
         updateAlbum(title: $title, imageLink: $imageLink, description: $description, userId: $userId, pinned: $pinned) {
           token
             user {
@@ -70,4 +70,16 @@ export const UPDATE_ALBUM = gql`
             }
         }
     }
-`
+`;
+
+export const UPDATE_POST = gql`
+    mutation updatePost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $latitude: Int!, $longitude: Int!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
+        updatePost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
+            token
+            user {
+                _id
+                username
+            }
+        }
+    }
+`;
