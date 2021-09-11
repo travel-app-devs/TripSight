@@ -22,5 +22,10 @@
   "homepage": "https://github.com/travel-app-devs/travelDiary#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "date-fns": "^2.23.0",
+    "lodash": "^4.17.21",
+    "rxjs": "^7.3.0"
   }
 }
