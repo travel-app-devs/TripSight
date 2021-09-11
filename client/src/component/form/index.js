@@ -1,16 +1,39 @@
 import style from './style.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import Auth from '../../utils/auth'
+
+import { useMutation } from '@apollo/client'
+import { ADD_POST } from '../../utils/mutations'
+import { QUERY_USERPOSTS } from '../../utils/queries'
 
 export default function Form () {
     const [ titleInput, setTitleInput ] = useState('')
     const [ tagsInput, setTagsInput ] = useState('')
-    const [ linksInput, setLinksInput ] = useState('')
+    const [ titleImageLink, setTitleLinksInput ] = useState('')
+    const [ bodyImageLink, setBodyLinksInput ] = useState('')
+    const [ postVidLink, setVidLinksInput ] = useState('')
     const [ postInput, setPostInput ] = useState('')
 
     const [ post, setPost ] = useState({title: '', tags:[], titleImageLink: '', bodyImageLink: [], postVid: '', textBody: ''})
 
     const [titleCharacterCount, setTitleCharacterCount] = useState(0);
     const [postCharacterCount, setPostCharacterCount] = useState(0);
+
+    const [ addPost, { error }] = useMutation(ADD_POST, {
+        update(cache, { data: { addPost } }) {
+            try {
+                const { userPosts } = cache.readQuery({ query: QUERY_USERPOSTS })
+                
+                cache.writeQuery({
+                    query: QUERY_USERPOSTS,
+                    data: { userPosts: [addPost, ...userPosts] },
+                })
+                
+            } catch (err) {
+                console.error(err)
+            }
+        }
+    })
 
     const handleChangeTitle = (event) => {
         const { name, value } = event.target
@@ -38,25 +61,65 @@ export default function Form () {
         } 
     }
 
-    const handleChangeLink = (event) => {
+    const handleChangeLink1 = (event) => {
         const { name, value } = event.target
 
-        if (name === 'linksInput') {
-            setLinksInput(value);
+        if (name === 'titleImage') {
+            setTitleLinksInput(value);
+        }
+    }
+
+    const handleChangeLink2 = (event) => {
+        const { name, value } = event.target
+
+        if (name === 'bodyImage') {
+            setBodyLinksInput(value);
+        }
+    }
+
+    const handleChangeLink3 = (event) => {
+        const { name, value } = event.target
+
+        if (name === 'postVid') {
+            setVidLinksInput(value);
         }
     }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
+        const userId = Auth.getProfile().data.userId
         let sepTags = tagsInput.split(',')
-        let sepLinks = linksInput.split(',')
-        sepTags.forEach(tag => tag.trim())
-        sepLinks.forEach(link => link.trim())
-        setPost({title: titleInput, textBody: postInput, tags: sepTags, titleImageLink: linksInput, bodyImageLink: sepLinks, postVid: linksInput})
-        console.log(post)
+        let sepLinks = bodyImageLink.split(',')
+        const tagsArray = sepTags.map(tag => tag.trim())
+        const linksArray = sepLinks.map(link => link.trim())
+        setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink, userId: userId})
+        try {
+            const { data } = await addPost({
+                variables: {
+                    title: post.title,
+                    textBody: post.textBody,
+                    tags: post.tags,
+                    titleImageLink: post.titleImageLink,
+                    bodyImageLinks: post.bodyImageLink,
+                    postVid: post.postVid,
+                    userId: post.userId
+                }
+            })
+            console.log(post)
+
+            setTitleInput('')
+            setPostInput('')
+            setTagsInput('')
+            setTitleLinksInput('')
+            setBodyLinksInput('')
+            setVidLinksInput('')
+        } catch (err) {
+            console.log(err)
+        }
+
     }
-    useEffect(()=>console.log(tagsInput))
-    useEffect(()=>console.log(post))
+    // useEffect(()=>console.log(tagsInput))
+    // useEffect(()=>console.log(post))
 
 
     return (
@@ -67,26 +130,26 @@ export default function Form () {
                     <div>
                         <div className={style.titleInput}>
                             <label htmlFor='title'>Title</label>
-                            <input id='title' name='titleInput' onChange={handleChangeTitle} type='text'></input>
+                            <input id='title' name='titleInput' onChange={handleChangeTitle} value={titleInput} type='text'></input>
                         </div>
                         <div className={style.tagsInput}>
-                            <label htmlFor='tags'>Tags</label>
-                            <input id='tags' onChange={handleChangeTags} type='text'></input>
+                            <label htmlFor='tags'>Tags (Separate with comma)</label>
+                            <input id='tags' name='tagsInput' onChange={handleChangeTags} value={tagsInput} type='text'></input>
                         </div>
                         <div className={style.linksInput}>
                             <div>
                                 <label htmlFor='titleImage'>Title Image Link</label>
-                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink} type='text'></input>
-                                <label htmlFor='bodyImage'>Body Image Link</label>
-                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink} type='text'></input>
+                                <input className={style.links} id='titleImage' name='titleImage' onChange={handleChangeLink1} value={titleImageLink} type='text'></input>
+                                <label htmlFor='bodyImage'>Image Links</label>
+                                <input className={style.links} id='bodyImage' name='bodyImage'onChange={handleChangeLink2} value={bodyImageLink} type='text'></input>
                                 <label htmlFor='postVid'>Video Link</label>
-                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink} type='text'></input>
+                                <input className={style.links} id='postVid' name='postVid' onChange={handleChangeLink3} value={postVidLink} type='text'></input>
                             </div>
                         </div>
                     </div>
                     <div className={style.postInput}>
                         <label htmlFor='post'>Post</label>
-                        <textarea name='postInput' rows='5' cols='90' id='posts' onChange={handleChangePost} type='text'></textarea>
+                        <textarea name='postInput' rows='5' cols='90' id='posts' onChange={handleChangePost} value={postInput} type='text'></textarea>
                     </div>
                     
                 </form>
