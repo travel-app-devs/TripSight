@@ -83,3 +83,15 @@ export const UPDATE_POST = gql`
         }
     }
 `;
+
+export const REMOVE_POST = gql `
+  mutation removePost($_id: ID!) {
+    removePost(_id: $_id)
+  }
+`;
+
+export const REMOVE_ALBUM = gql `
+  mutation removeAlbum($_id: ID!) {
+    removeAlbum(_id: $_id)
+  }
+`;
