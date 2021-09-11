@@ -81,6 +81,7 @@ const typeDefs = gql`
         description: String
         userId: String!
         pinned: Boolean
+        tags: String
     ): Post
     updateUser(
         username: String! 
@@ -109,6 +110,7 @@ const typeDefs = gql`
         description: String
         userId: String!
         pinned: Boolean
+        tags: String
     ): Post
     removePost(_id: ID!): Post
     removeAlbum(_id: ID!): Album
