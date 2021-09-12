@@ -32,8 +32,8 @@ const typeDefs = gql`
     description: String
     pinned: Boolean
     tags: String
-    latitude: Int!
-    longitude: Int!
+    latitude: Float!
+    longitude: Float!
     userId: User
     albumId: Album
   }
@@ -76,8 +76,8 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Int!
-        longitude: Int!
+        latitude: Float!
+        longitude: Float!
         description: String
         userId: String!
         pinned: Boolean
@@ -105,8 +105,8 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Int!
-        longitude: Int!
+        latitude: Float!
+        longitude: Float!
         description: String
         userId: String!
         pinned: Boolean
