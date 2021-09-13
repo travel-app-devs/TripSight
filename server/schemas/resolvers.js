@@ -45,12 +45,6 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password })
-      const token = signToken(user);
-      return { token, user };
-    },
-
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email })
 
@@ -67,23 +61,20 @@ const resolvers = {
       const token = signToken(user);
       return { token, user }
     },
+
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password })
+      const token = signToken(user);
+      return { token, user };
+    },
+
     addPost: async (parent, args) => {
-      return Post.create(
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      )
+      const addPost = await Post.create(args);
+
+      return addPost
     },
     addAlbum: async (parent, args) => {
-      return Album.create(
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      )
+      return Album.create(args)
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {

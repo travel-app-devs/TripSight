@@ -1,0 +1,65 @@
+.homepageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  flex-direction: column;
+}
+
+.homepageContainer .homepageSection {
+  width: 50%;
+  margin: auto;
+}
+
+.homepageContainer .homepageSection .homepageHeader {
+  font-size: 4.2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.homepageContainer .homepageSection .homepageInformation {
+  font-size: 2.4rem;
+  line-height: 1.5;
+  color: #878787;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.homepageContainer .homepageSection #blogWritingImage {
+  width: 100%;
+  height: 100%;
+  margin-top: 5rem;
+}
+
+.homepageContainer .homepageSectionTwo {
+  width: 50%;
+  margin: auto;
+  margin-top: 10rem;
+}
+
+.homepageContainer .homepageSectionTwo .homepageHeaderTwo {
+  font-size: 4.2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+  .homepageContainer {
+    margin-top: 5rem;
+  }
+  .homepageContainer .homepageSection {
+    width: 85%;
+    margin: auto;
+  }
+  .homepageContainer .homepageSection .homepageHeader {
+    font-size: 3.5rem;
+  }
+  .homepageContainer .homepageSection .homepageInformation {
+    font-size: 1.8rem;
+  }
+  .homepageContainer .homepageSectionTwo {
+    width: 85%;
+    margin-top: 5rem;
+  }
+  .homepageContainer .homepageSectionTwo .homepageHeaderTwo {
+    font-size: 3.5rem;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */
