@@ -32,6 +32,7 @@ const SignupForm = () => {
           const { data } = await addUser({
             variables: { ...formState },
           });
+          console.log(data)
     
           Auth.login(data.addUser.token);
         } catch (e) {
@@ -57,7 +58,7 @@ const SignupForm = () => {
                       placeholder="Your username"
                       name="username"
                       type="text"
-                      value={formState.name}
+                      value={formState.username}
                       onChange={handleChange}
                     />
                     <input
