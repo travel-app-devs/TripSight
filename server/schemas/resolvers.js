@@ -61,20 +61,35 @@ const resolvers = {
       const token = signToken(user);
       return { token, user }
     },
+
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password })
       const token = signToken(user);
       return { token, user };
     },
 
-    addPost: async (parent, args) => {
-      return Post.create(
-        args,
+    addPost: async (parent, {title, titleImageLink, textBody, bodyImageLinks, postVid, latitude, longitude, description, userId, pinned, tags, albumId}) => {
+      const post = await Post.create(
+        {
+          title: title,
+          titleImageLink: titleImageLink,
+          textBody: textBody,
+          bodyImageLinks: bodyImageLinks,
+          postVid: postVid,
+          latitude: latitude,
+          longitude: longitude,
+          description: description,
+          userId: userId,
+          pinned: pinned,
+          tags: tags,
+          albumId: albumId
+        },
         {
           new: true,
           runValidators: true,
         }
-      )
+      );
+      return post;
     },
     addAlbum: async (parent, args) => {
       return Album.create(
