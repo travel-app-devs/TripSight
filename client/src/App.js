@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -17,6 +17,9 @@ import Login from './pages/Login'
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
+
+const apiKey = process.env.REACT_APP_MAPS_KEY
+
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -37,6 +40,16 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 function App() {
+  useEffect(() => {
+    if(!document.querySelector("#here")) {
+    console.log(apiKey)
+    const googleMapScript = document.createElement("script");
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+    googleMapScript.async = true;
+    googleMapScript.id = "here";
+    window.document.body.appendChild(googleMapScript);
+    }
+  }, []);
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -68,6 +81,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    
 
   );
 }
