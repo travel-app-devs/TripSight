@@ -68,37 +68,13 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, {title, titleImageLink, textBody, bodyImageLinks, postVid, latitude, longitude, description, userId, pinned, tags, albumId}) => {
-      const post = await Post.create(
-        {
-          title: title,
-          titleImageLink: titleImageLink,
-          textBody: textBody,
-          bodyImageLinks: bodyImageLinks,
-          postVid: postVid,
-          latitude: latitude,
-          longitude: longitude,
-          description: description,
-          userId: userId,
-          pinned: pinned,
-          tags: tags,
-          albumId: albumId
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-      return post;
+    addPost: async (parent, args) => {
+      const addPost = await Post.create(args);
+
+      return addPost
     },
     addAlbum: async (parent, args) => {
-      return Album.create(
-        args,
-        {
-          new: true,
-          runValidators: true,
-        }
-      )
+      return Album.create(args)
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {

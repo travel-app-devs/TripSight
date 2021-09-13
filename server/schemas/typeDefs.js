@@ -53,7 +53,7 @@ const typeDefs = gql`
     album(_id: ID!): Album
     userPosts(userId: ID!): [Post]
     userAlbums(userId: ID!): [Album]
-    albumPosts(albumId: ID!): [Post]
+    albumPosts(albumId: ID): [Post]
   }
 
   type Mutation {
@@ -82,7 +82,7 @@ const typeDefs = gql`
         userId: ID!
         pinned: Boolean
         tags: String
-        albumId: ID!
+        albumId: ID
     ): Post
     updateUser(
         username: String! 
@@ -112,7 +112,7 @@ const typeDefs = gql`
         userId: String!
         pinned: Boolean
         tags: String
-        albumId: ID!
+        albumId: ID
     ): Post
     removePost(_id: ID!): Post
     removeAlbum(_id: ID!): Album
