@@ -50,7 +50,7 @@ const LoginForm = () => {
             {data ? (
               <p>
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/me">back to the homepage.</Link>
               </p>
             ) : (
               <form id={style.form} onSubmit={handleFormSubmit}>
