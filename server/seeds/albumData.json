@@ -1,0 +1,37 @@
+[
+    {
+        "title": "album test one",
+        "description": "description one",
+        "posts": ["613e9fcfe4c353f5ad920f23"],
+        "userId": "613e9fcfe4c353f5ad920f1d",
+        "pinned": true
+    },
+    {
+        "title": "album test two",
+        "description": "description two",
+        "posts": ["613e9fcfe4c353f5ad920f24"],
+        "userId": "613e9fcfe4c353f5ad920f1e",
+        "pinned": true
+    },
+    {
+        "title": "album test three",
+        "description": "description three",
+        "posts": ["613e9fcfe4c353f5ad920f22"],
+        "userId": "613e9fcfe4c353f5ad920f1f",
+        "pinned": true
+    },
+    {
+        "title": "album test four",
+        "description": "description four",
+        "posts": ["613e9fcfe4c353f5ad920f25"],
+        "userId": "613e9fcfe4c353f5ad920f20",
+        "pinned": true
+    },
+    {
+        "title": "album test five",
+        "description": "description five",
+        "posts": ["613ea04147d5be8f8f3668b4"],
+        "userId": "613fd79689f148cb1f2fc369",
+        "pinned": true
+    }
+]
