@@ -1,0 +1,96 @@
+@import "../../variables/variables.scss";
+
+.cardHeader {
+    text-align: center;
+    font-size: 4rem;
+    font-family: $font;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-block-end: 0rem;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: auto;
+
+    input {
+        height: 3.5rem;
+        margin-top: 2rem;
+        border: 0.2rem solid $black;
+    }
+
+    #formSubmitBtn {
+        margin-top: 2rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 0.4rem;
+        background: $black;
+        color: $white;
+        text-transform: uppercase;
+        font-weight: $regular;
+
+        &:hover {
+            background: $orange;
+        }
+    }
+}
+
+.errorMessage{
+    display: flex; 
+    justify-content: center;
+    color: red;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.signInContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    .signInSection {
+
+        h4 {
+            font-size: 3rem;
+            font-family: $font;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    .signInButton {
+
+        #createBtn{
+            padding: 1rem 7.5rem;
+            background: $black;
+            border: none;
+            text-transform: uppercase;
+            border-radius: 0.4rem;
+            color: $white;
+            text-decoration: none;
+            font-size: 1.3rem;
+
+            &:hover {
+                background: $orange;
+            }
+            
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
+@include media-sm{
+    #form {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+    }
+}

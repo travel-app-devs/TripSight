@@ -1,0 +1,69 @@
+@import "../../variables/variables.scss";
+
+.cardHeader {
+    text-align: center;
+    font-size: 4rem;
+    font-family: $font;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-block-end: 0rem;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: auto;
+
+    input {
+        height: 3.5rem;
+        margin-top: 2rem;
+        border: 0.2rem solid $black;
+    }
+
+    #formSubmitBtn {
+        margin-top: 2rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 0.4rem;
+        background: $black;
+        color: $white;
+        text-transform: uppercase;
+        font-weight: $regular;
+
+        &:hover {
+            background: $orange;
+        }
+    }
+}
+
+.errorMessage{
+    display: flex; 
+    justify-content: center;
+    color: red;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 3rem;
+    font-size: 1.4rem;
+
+    a{
+        color: $blue;
+
+        &:hover{
+            color: $orange;
+        }
+    }
+}
+
+@include media-sm{
+    #form {
+        width: 60%;
+    }
+}
