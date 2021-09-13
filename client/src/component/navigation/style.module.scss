@@ -1,0 +1,48 @@
+@import "../../variables/variables.scss";
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    left: 5em;
+    right: 5rem;
+    top: 2rem;
+
+    .navLogoContainer {
+        margin-top: 1rem;
+
+        #sightLogo {
+            width: 168px;
+            height: 40px;
+        }
+    }
+
+    .nav {
+        ul {
+
+            list-style-type: none;
+
+            li {
+                font-size: 2rem;
+
+                &:hover {
+                    background: $orange;
+                }
+
+                a {
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: $regular;
+                    letter-spacing: 0.1rem;
+                    text-decoration: none;
+                    padding: 0.7rem 3rem;
+                    background: $yellow;
+                    border-radius: 0.8rem;
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import "../../variables/variables.scss";
+
+.homepageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    flex-direction: column;
+
+    .homepageSection {
+        width: 50%;
+        margin: auto;
+
+        .homepageHeader {
+            font-size: 4.2rem;
+            font-family: $font;
+        }
+
+        .homepageInformation {
+            font-size: 2.4rem;
+            line-height: 1.5;
+            color: $gray;
+            font-family: $font;
+            font-weight: $light;
+        }
+
+        #blogWritingImage {
+            width: 100%;
+            height: 100%;
+            margin-top: 5rem;
+        }
+    }
+
+    .homepageSectionTwo {
+        width: 50%;
+        margin: auto;
+        margin-top: 10rem;
+
+        .homepageHeaderTwo {
+            font-size: 4.2rem;
+            font-family: $font;
+        }
+    }
+}
+
+@include media-sm {
+    .homepageContainer {
+        margin-top: 5rem;
+
+        .homepageSection {
+            width: 85%;
+            margin: auto;
+
+            .homepageHeader {
+                font-size: 3.5rem;
+            }
+
+            .homepageInformation {
+                font-size: 1.8rem;
+            }
+
+        }
+
+        .homepageSectionTwo {
+            width: 85%;
+            margin-top: 5rem;
+
+            .homepageHeaderTwo {
+                font-size: 3.5rem;
+            }
+
+        }
+    }
+}

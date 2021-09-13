@@ -51,16 +51,24 @@
             input {
                 border: none;
                 border-radius: 0.8rem;
+                font-size: 2rem;
+                padding-left: 1rem;
 
                 &:focus {
                     background: $white;
                     color: $black;
+                    font-size: 2rem;
+                    padding-left: 1rem;
                 }
             }
 
             #heroSearchForm {
                 width: 35%;
                 height: 4rem;
+
+                &::placeholder {
+                    text-align: center;
+                }
             }
 
             #heroSearchButton {
@@ -102,6 +110,15 @@
 
             .heroForm {
                 width: 100%;
+
+                input {
+
+                    font-size: 1.3rem;
+
+                    &:focus {
+                        font-size: 1.3rem;
+                    }
+                }
 
                 #heroSearchForm {
                     width: 50%;

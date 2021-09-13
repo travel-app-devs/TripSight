@@ -1,0 +1,43 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  left: 5em;
+  right: 5rem;
+  top: 2rem;
+}
+
+.navContainer .navLogoContainer {
+  margin-top: 1rem;
+}
+
+.navContainer .navLogoContainer #sightLogo {
+  width: 168px;
+  height: 40px;
+}
+
+.navContainer .nav ul {
+  list-style-type: none;
+}
+
+.navContainer .nav ul li {
+  font-size: 2rem;
+}
+
+.navContainer .nav ul li:hover {
+  background: #ff784f;
+}
+
+.navContainer .nav ul li a {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  padding: 0.7rem 3rem;
+  background: #ffc136;
+  border-radius: 0.8rem;
+}
+/*# sourceMappingURL=style.module.css.map */

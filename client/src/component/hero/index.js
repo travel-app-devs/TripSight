@@ -11,7 +11,7 @@ const Hero = () => {
               <p className={style.heroTextDescription}>Find travel recommendations from real people that have been there previously!</p>
           </div>
           <div className={style.heroForm}>
-              <input id={style.heroSearchForm} type="text" />
+              <input id={style.heroSearchForm} type="text" placeholder="Where is your next destination?" />
               <input id={style.heroSearchButton} type="submit" value="Search"/>
           </div>
           </div>

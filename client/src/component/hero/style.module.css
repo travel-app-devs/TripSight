@@ -50,16 +50,24 @@
 .heroContainer .heroTextContainer .heroForm input {
   border: none;
   border-radius: 0.8rem;
+  font-size: 2rem;
+  padding-left: 1rem;
 }
 
 .heroContainer .heroTextContainer .heroForm input:focus {
   background: white;
   color: black;
+  font-size: 2rem;
+  padding-left: 1rem;
 }
 
 .heroContainer .heroTextContainer .heroForm #heroSearchForm {
   width: 35%;
   height: 4rem;
+}
+
+.heroContainer .heroTextContainer .heroForm #heroSearchForm::placeholder {
+  text-align: center;
 }
 
 .heroContainer .heroTextContainer .heroForm #heroSearchButton {
@@ -91,6 +99,12 @@
   }
   .heroContainer .heroTextContainer .heroForm {
     width: 100%;
+  }
+  .heroContainer .heroTextContainer .heroForm input {
+    font-size: 1.3rem;
+  }
+  .heroContainer .heroTextContainer .heroForm input:focus {
+    font-size: 1.3rem;
   }
   .heroContainer .heroTextContainer .heroForm #heroSearchForm {
     width: 50%;
