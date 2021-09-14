@@ -27,7 +27,6 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  
   login(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign(`/dashboard/${this.getProfile().data._id}`)
