@@ -37,14 +37,7 @@ const Dashboard = () => {
   return (
     <div>
       <DashInfo user={userProfile}/>
-        <div className="col-12 col-md-10 mb-5">
-          <PostList
-            posts={user.posts}
-            title={`${userProfile.email}'s Posts`}
-            showTitle={false}
-            showUsername={false}
-          />
-        </div>
+
       </div>
   );
 };
