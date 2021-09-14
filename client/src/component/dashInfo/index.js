@@ -13,7 +13,7 @@ const DashInfo = ({ user }) => {
                     <div className={style.postList}>
                         <PostList
                             posts={user.posts}
-                            title={`${user.email}'s Posts`}
+                            title={`${user.email}'s Post`}
                             showTitle={false}
                             showUsername={false}
                         />

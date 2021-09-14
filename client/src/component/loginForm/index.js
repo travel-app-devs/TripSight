@@ -50,8 +50,8 @@ const LoginForm = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{" "}
-                <Link to={`/dashboard/${Auth.getProfile().data._id}`}>back to the homepage.</Link>
+                Success! You are now logged in
+                <Link to={`/dashboard/${Auth.getProfile().data._id}`}></Link>
               </p>
             ) : (
               <form id={style.form} onSubmit={handleFormSubmit}>
