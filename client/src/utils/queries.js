@@ -132,3 +132,15 @@ export const QUERY_ALLPOST = gql`
     }
   }
 `;
+
+export const QUERY_PLACEPOSTS = gql`
+  query placePosts($latitude: Float!, $longitude: Float!) {
+    posts {
+      title
+      latitude
+      longitude
+      _id
+      tags
+    }
+  }
+`;

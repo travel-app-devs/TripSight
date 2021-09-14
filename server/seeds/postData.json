@@ -9,6 +9,24 @@
         "tags": "food,drinks"
     },
     {
+        "title": "test post tokyo 2",
+        "textBody": "this is a test post that should be located in Tokyo, Japan",
+        "latitude": 35.6897,
+        "longitude": 139.6922,
+        "userId": "613ad3aacc6fa772df53ce9e",
+        "pinned": false,
+        "tags": "food,drinks"
+    },
+    {
+        "title": "test post tokyo 3",
+        "textBody": "this is a test post that should be located in Tokyo, Japan",
+        "latitude": 35.6897,
+        "longitude": 139.6922,
+        "userId": "613ad3aacc6fa772df53ce9e",
+        "pinned": false,
+        "tags": "food,drinks"
+    },
+    {
         "title": "test post new york",
         "textBody": "this is a test post that should be located in new york",
         "latitude": 40.6943,
