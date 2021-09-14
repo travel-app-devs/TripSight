@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($_id: ID!) {
@@ -22,17 +22,17 @@ export const QUERY_ALBUM = gql`
       title
       imageLinkdescription
       posts {
-          _id
-          title
-          titleImageLink
-          bodyImageLinkspostVid
-          description
-          pinned
-          tags
-          latitude
-          longitude
-          userId
-          albumId
+        _id
+        title
+        titleImageLink
+        bodyImageLinkspostVid
+        description
+        pinned
+        tags
+        latitude
+        longitude
+        userId
+        albumId
       }
       userId
       pinned
@@ -43,17 +43,17 @@ export const QUERY_ALBUM = gql`
 export const QUERY_POST = gql`
   query post($_id: ID!) {
     post(_id: $_id) {
-        _id
-        title
-        titleImageLink
-        bodyImageLinkspostVid
-        description
-        pinned
-        tags
-        latitude
-        longitude
-        userId
-        albumId
+      _id
+      title
+      titleImageLink
+      bodyImageLinkspostVid
+      description
+      pinned
+      tags
+      latitude
+      longitude
+      userId
+      albumId
     }
   }
 `;
@@ -61,17 +61,17 @@ export const QUERY_POST = gql`
 export const QUERY_USERPOSTS = gql`
   query userPosts($userId: ID!) {
     post(userId: $userId) {
-        _id
-        title
-        titleImageLink
-        bodyImageLinkspostVid
-        description
-        pinned
-        tags
-        latitude
-        longitude
-        userId
-        albumId
+      _id
+      title
+      titleImageLink
+      bodyImageLinkspostVid
+      description
+      pinned
+      tags
+      latitude
+      longitude
+      userId
+      albumId
     }
   }
 `;
@@ -79,6 +79,28 @@ export const QUERY_USERPOSTS = gql`
 export const QUERY_ALBUMPOSTS = gql`
   query albumPosts($albumId: ID!) {
     post(albumId: $albumId) {
+      _id
+      title
+      titleImageLink
+      bodyImageLinkspostVid
+      description
+      pinned
+      tags
+      latitude
+      longitude
+      userId
+      albumId
+    }
+  }
+`;
+
+export const QUERY_USERALBUMS = gql`
+  query userAlbums($userId: ID!) {
+    album(userId: $userId) {
+      _id
+      title
+      imageLinkdescription
+      posts {
         _id
         title
         titleImageLink
@@ -90,31 +112,23 @@ export const QUERY_ALBUMPOSTS = gql`
         longitude
         userId
         albumId
+      }
+      userId
+      pinned
     }
   }
 `;
 
-export const QUERY_USERALBUMS = gql`
-  query userAlbums($userId: ID!) {
-    album(userId: $userId) {
-        _id
+/*NEW STUFF - KENNY*/
+
+export const QUERY_ALLPOST = gql`
+  query posts {
+    posts {
       title
-      imageLinkdescription
-      posts {
-          _id
-          title
-          titleImageLink
-          bodyImageLinkspostVid
-          description
-          pinned
-          tags
-          latitude
-          longitude
-          userId
-          albumId
-      }
-      userId
-      pinned
+      latitude
+      longitude
+      _id
+      tags
     }
   }
 `;

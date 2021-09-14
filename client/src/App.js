@@ -16,6 +16,7 @@ import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
 
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
