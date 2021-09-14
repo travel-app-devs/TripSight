@@ -4,27 +4,23 @@
 
 .formContainer .form {
   padding: 3%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: #69a2ef;
   font-family: "Roboto", sans-serif;
   color: white;
   height: 100%;
-  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
-          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+  box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
 }
 
 .formContainer .form .submitPost {
   display: inline;
   float: right;
-  background-color: #ff784f;
-  border: solid 0.1rem #ff784f;
+  background-color: #878787;
+  border: solid 0.1rem #878787;
   border-radius: .2rem;
   padding: .4rem;
   color: white;
-  -webkit-box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
-          box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+  box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
 }
 
 .formContainer .form .submitPost:hover {
@@ -32,8 +28,7 @@
 }
 
 .formContainer .form .submitPost:active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0.5rem;
 }
 
@@ -52,7 +47,7 @@
 }
 
 .formContainer .form div input:active {
-  border: solid 0.1rem #ff784f;
+  border: solid 0.1rem #878787;
 }
 
 .formContainer .form div label {
@@ -71,7 +66,7 @@
 }
 
 .formContainer .form div textarea:active {
-  border: solid 0.1rem #ff784f;
+  border: solid 0.1rem #878787;
 }
 
 .formContainer .form .titleInput {
