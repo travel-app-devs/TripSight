@@ -1,4 +1,3 @@
-
 import React, {useEffect} from 'react';
 import {
   ApolloClient,
@@ -12,6 +11,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Home from './pages/home';
 import Signup from './pages/Signup'
 import Login from './pages/Login'
+import SearchResults from './pages/searchResults';
 import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
@@ -71,6 +71,9 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
+          <Route exact path="/results">
+            <SearchResults />
+          </Route>
           <Route exact path="/dashboard/:userId">
             <Navigation />
             <Dashboard />
@@ -78,7 +81,10 @@ function App() {
           <Route exact path="/newpost">
             <NewPost />
           </Route>
-          {/* <Route exact path="/profiles/:username">
+          {/* <Route exact path="/me">
+            <Profile />
+          </Route>
+          <Route exact path="/profiles/:username">
             <Profile />
           </Route>
           <Route exact path="/posts/:postId">
