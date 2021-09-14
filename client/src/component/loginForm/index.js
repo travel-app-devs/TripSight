@@ -34,6 +34,7 @@ const LoginForm = () => {
       console.error(e);
     }
 
+
     // clear form values
     setFormState({
       email: "",
@@ -50,7 +51,7 @@ const LoginForm = () => {
             {data ? (
               <p>
                 Success! You may now head{" "}
-                <Link to="/me">back to the homepage.</Link>
+                <Link to={`/dashboard/${Auth.getProfile().data._id}`}>back to the homepage.</Link>
               </p>
             ) : (
               <form id={style.form} onSubmit={handleFormSubmit}>

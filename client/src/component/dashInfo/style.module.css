@@ -1,0 +1,69 @@
+.dashContainer {
+  margin: 10rem;
+  border: solid 0.1rem #e9e6e6;
+  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+}
+
+.dashContainer .dashHeader {
+  margin: 5rem;
+  text-align: left;
+  background-color: white;
+}
+
+.dashContainer .dashHeader .welcome {
+  margin: 1rem;
+  color: black;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.dashContainer .dashHeader .welcome #username {
+  color: #ff784f;
+}
+
+.dashContainer .dashHeader button {
+  background-color: #ff784f;
+  border: solid 0.1rem #ff784f;
+  border-radius: .2rem;
+  padding: .4rem;
+  color: white;
+  -webkit-box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+          box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+  float: right;
+}
+
+.dashContainer .dashHeader button:hover {
+  background-color: #f6655b;
+}
+
+.dashContainer .dashHeader button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0.5rem;
+}
+
+.dashContainer .dashHeader .lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dashContainer .dashHeader .lists .postList {
+  color: black;
+  font-size: large;
+  text-align: left;
+  width: 75%;
+}
+
+.dashContainer .dashHeader .lists .favorites {
+  color: black;
+  font-size: large;
+  text-align: center;
+  width: 25%;
+}
+/*# sourceMappingURL=style.module.css.map */
