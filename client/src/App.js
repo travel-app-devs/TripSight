@@ -1,4 +1,3 @@
-
 import React, {useEffect} from 'react';
 import {
   ApolloClient,
@@ -13,6 +12,10 @@ import Home from './pages/home';
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import SearchResults from './pages/searchResults';
+import Dashboard from './pages/Dashboard'
+import NewPost from './pages/NewPost'
+import Navigation from './component/navigation'
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -71,6 +74,13 @@ function App() {
           </Route>
           <Route exact path="/results">
             <SearchResults />
+          </Route>
+          <Route exact path="/dashboard/:userId">
+            <Navigation />
+            <Dashboard />
+          </Route>
+          <Route exact path="/newpost">
+            <NewPost />
           </Route>
           {/* <Route exact path="/me">
             <Profile />
