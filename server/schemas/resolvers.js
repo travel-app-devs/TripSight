@@ -14,8 +14,8 @@ const resolvers = {
       return Album.find({});
     },
     user: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return User.find(params);
+      const params = { _id: _id };
+      return User.findOne(params);
     },
     thisUser: async (parent, args, context) => {
       if (context.user) {
@@ -25,34 +25,34 @@ const resolvers = {
     },
     thisUserPosts: async (parent, args, context) => {
       if (context.user) {
-        return Post.find({ userId: context.user._id });
+        return Post.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     thisUserAlbums: async (parent, args, context) => {
       if (context.user) {
-        return Album.find({ userId: context.user._id });
+        return Album.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     post: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Post.find(params);
+      const params = _id ? { _id: _id } : {};
+      return Post.findOne(params);
     },
     album: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Album.find(params);
+      const params = _id ? { _id: _id } : {};
+      return Album.findOne(params);
     },
     userPosts: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Post.find(params);
     },
     albumPosts: async (parent, { userId }) => {
-      const params = userId ? userId : {};
+      const params = userId ? { userId: userId } : {};
       return Post.find(params);
     },
     userAlbums: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Album.find(params);
     },
     placePosts: async (parent, { latitude, longitude }) => {
