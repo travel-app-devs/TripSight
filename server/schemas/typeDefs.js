@@ -49,11 +49,14 @@ const typeDefs = gql`
     albums: [Album]
     user(_id: ID!): User
     thisUser(_id: ID!): User
+    thisUserPosts(userId: ID!): [Post]
+    thisUserAlbums(userId: ID!): [Album]
     post(_id: ID!): Post
     album(_id: ID!): Album
     userPosts(userId: ID!): [Post]
     userAlbums(userId: ID!): [Album]
     albumPosts(albumId: ID): [Post]
+    placePosts(latitude: Float!, longitude: Float!): [Post]
   }
 
   type Mutation {

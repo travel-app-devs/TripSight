@@ -31,3 +31,12 @@
     -userInfo (object, required, keys are id and pinned (string referring to user, and boolean))
 
 
+higher order functions
+closure
+gunjs
+sveldt
+bigchaindb
+ethereum smart contracts
+solidity
+web3js
+web 3.0
