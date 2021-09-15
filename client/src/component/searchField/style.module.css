@@ -1,0 +1,84 @@
+.heroForm {
+  width: 100%;
+  text-align: center;
+}
+
+.heroForm input {
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+
+.heroForm input:focus {
+  background: white;
+  color: black;
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+
+.heroForm #heroSearchForm {
+  width: 65%;
+  height: 4rem;
+  border: 2px solid black;
+}
+
+.heroForm #heroSearchForm::placeholder {
+  text-align: center;
+}
+
+.heroForm #heroSearchButton {
+  width: 28%;
+  margin-left: 1rem;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  height: 4.7rem;
+}
+
+@media screen and (max-width: 500px) {
+  .heroForm {
+    width: 100%;
+  }
+  .heroForm input {
+    font-size: 1.3rem;
+  }
+  .heroForm input:focus {
+    font-size: 1.3rem;
+  }
+  .heroForm #heroSearchForm {
+    width: 50%;
+    height: 3.8rem;
+  }
+  .heroForm #heroSearchButton {
+    width: 30%;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroForm {
+    width: 100%;
+    text-align: center;
+  }
+  .heroForm input {
+    border: none;
+    border-radius: 0.8rem;
+  }
+  .heroForm input:focus {
+    background: white;
+    color: black;
+  }
+  .heroForm #heroSearchForm {
+    width: 50%;
+    height: 3.8rem;
+  }
+  .heroForm #heroSearchButton {
+    width: 30%;
+    height: 4rem;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */

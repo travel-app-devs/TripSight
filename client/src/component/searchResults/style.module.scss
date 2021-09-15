@@ -1,42 +1,63 @@
 @import "../../variables/variables.scss";
 
-.searchContainer{
+.searchResultsContainer {
+
     padding-top: 2rem;
     padding-left: 5rem;
     width: 65%;
     margin: auto;
-    
-    h1{
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        font-size: 4rem;
+
+    .searchFieldContainer {
+        margin-top: 10rem;
+
+        h1 {
+            padding-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: 4rem;
+        }
     }
 
-    .searchResultsSection{
-        border: 0.2rem solid $black;
-        border-radius: 0.8rem;
-        .searchSection{
-            padding: 2rem;
-            border-bottom: 1px solid $black;
-            display: flex;
-            justify-content: space-between;
+    .searchContainer {
 
-            .searchTitle{
-                font-size: 2rem;
-            }
+        margin-top: 10rem;
 
-            button{
-                background: $black;
-                border: none;
-                color: $white;
-                padding: 1rem 2rem;
-                border-radius: 0.4rem;
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: 4rem;
+            padding-bottom: 3rem;
+        }
 
-                &:hover{
-                    background: $orange;
+        .searchResultsSection {
+            border: 0.2rem solid $black;
+            border-radius: 0.8rem;
+
+            .searchSection {
+                padding: 2rem;
+                border-bottom: 1px solid $black;
+                display: flex;
+                justify-content: space-between;
+
+                .searchTitle {
+                    font-size: 2rem;
+                }
+
+                button {
+                    background: $black;
+                    border: none;
+                    color: $white;
+                    padding: 1rem 2rem;
+                    border-radius: 0.4rem;
+
+                    &:hover {
+                        background: $orange;
+                    }
                 }
             }
         }
     }
+
 }
