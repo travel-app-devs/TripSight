@@ -10,7 +10,6 @@ export const QUERY_USER = gql`
       lastName
       profPicLink
       bio
-      favorites
     }
   }
 `;
@@ -29,19 +28,10 @@ export const QUERY_THISUSER = gql`
   }
 `;
 export const QUERY_THISUSERPOSTS = gql`
-  query thisUserPosts($userId: User!) {
+  query thisUserPosts($userId: ID!) {
     thisUserPosts(userId: $userId) {
       _id
-      title
-      titleImageLink
-      bodyImageLinkspostVid
-      description
-      pinned
-      tags
-      latitude
-      longitude
-      userId
-      albumId
+
     }
   }
 `;

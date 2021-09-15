@@ -10,6 +10,7 @@ const SearchResults = (props) => {
 //REACTIVATE BACK WHEN DONE TESTING
   /*
   const { loading, data } = useQuery(QUERY_PLACEPOSTS);
+<<<<<<< HEAD
   const config = {
     method: 'get',
     url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.6897%2C139.6922&radius=15000&key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg`,
@@ -26,6 +27,8 @@ const SearchResults = (props) => {
   */
   
   const { loading, data } = useQuery(QUERY_ALLPOST);
+=======
+>>>>>>> main
 
   const postList = data?.posts || [];
   console.log(postList);
