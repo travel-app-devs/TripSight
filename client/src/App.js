@@ -15,7 +15,7 @@ import SearchResults from './pages/searchResults'
 import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
-import viewPost from './pages/viewPost';
+import viewPost from './pages/viewPost'
 import Profile from './pages/Profile'
 
 

@@ -186,3 +186,17 @@ export const QUERY_PLACEPOSTS = gql`
     }
   }
 `;
+
+export const QUERY_ALLPOST = gql`
+  query posts {
+    posts {
+      title
+      latitude
+      longitude
+      _id
+      tags
+    }
+  }
+`;
+
+

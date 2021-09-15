@@ -1,10 +1,11 @@
 import style from "./style.module.css";
 import { useQuery } from "@apollo/client";
-import { QUERY_PLACEPOSTS } from "../../utils/queries";
+import { Link } from 'react-router-dom';
+import { QUERY_ALLPOST } from "../../utils/queries";
 import SearchField from "../searchField";
 
 const SearchResults = () => {
-  const { loading, data } = useQuery(QUERY_PLACEPOSTS);
+  const { loading, data } = useQuery(QUERY_ALLPOST);
 
   const postList = data?.posts || [];
   console.log(postList);
@@ -33,7 +34,7 @@ const SearchResults = () => {
                       <p>{post._id}</p>
                     </div>
                     <div>
-                      <button>Read More Here</button>
+                    <Link to={`/viewPost/${post._id}`}>Read More Here</Link>
                     </div>
                   </div>
                 );
