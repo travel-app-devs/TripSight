@@ -16,13 +16,15 @@ import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
 import viewPost from './pages/viewPost';
+import Profile from './pages/Profile'
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-const apiKey = process.env.MAPS_KEY
+const apiKey = process.env.REACT_APP_MAPS_KEY
 
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -48,7 +50,7 @@ function App() {
     if(!document.querySelector("#here")) {
     console.log(apiKey)
     const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
     googleMapScript.async = true;
     googleMapScript.id = "here";
     window.document.body.appendChild(googleMapScript);
@@ -88,10 +90,11 @@ function App() {
           {/* <Route exact path="/me">
             <Profile />
           </Route>
-          <Route exact path="/profiles/:username">
+          <Route exact path="/profile/:userId">
+            <Navigation />
             <Profile />
           </Route>
-          <Route exact path="/posts/:postId">
+          {/* <Route exact path="/posts/:postId">
             <SinglePost />
           </Route> */}
         </Switch>

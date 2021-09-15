@@ -18,15 +18,25 @@
   font-size: xx-large;
 }
 
+.dashContainer .dashHeader .welcome a {
+  text-decoration: none;
+}
+
 .dashContainer .dashHeader .welcome #username {
   color: #ff784f;
 }
 
+.dashContainer .dashHeader .welcome #username:hover {
+  color: #eb5122;
+}
+
 .dashContainer .dashHeader button {
+  font-family: "Roboto", sans-serif;
+  margin-top: -3.9rem;
   background-color: #ff784f;
   border: solid 0.1rem #ff784f;
   border-radius: .2rem;
-  padding: .4rem;
+  padding: 1rem;
   color: white;
   -webkit-box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
           box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
