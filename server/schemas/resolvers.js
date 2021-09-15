@@ -23,6 +23,18 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    thisUserPosts: async (parent, args, context) => {
+      if (context.user) {
+        return Post.find({ userId: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    thisUserAlbums: async (parent, args, context) => {
+      if (context.user) {
+        return Album.find({ userId: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     post: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return Post.find(params);
@@ -42,6 +54,10 @@ const resolvers = {
     userAlbums: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return Album.find(params);
+    },
+    placePosts: async (parent, { latitude, longitude }) => {
+      const params = { latitude, longitude } ? { latitude: latitude, longitude: longitude } : {};
+      return Post.find(params);
     },
   },
   Mutation: {
