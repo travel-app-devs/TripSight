@@ -36,23 +36,23 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     post: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Post.find(params);
     },
     album: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Album.find(params);
     },
     userPosts: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Post.find(params);
     },
     albumPosts: async (parent, { userId }) => {
-      const params = userId ? userId : {};
+      const params = userId ? { userId: userId } : {};
       return Post.find(params);
     },
     userAlbums: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
+      const params = _id ? { _id: _id } : {};
       return Album.find(params);
     },
     placePosts: async (parent, { latitude, longitude }) => {
