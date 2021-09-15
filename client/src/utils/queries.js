@@ -14,6 +14,61 @@ export const QUERY_USER = gql`
     }
   }
 `;
+export const QUERY_THISUSER = gql`
+  query thisUser($_id: ID!) {
+    thisUser(_id: $_id) {
+      _id
+      username
+      email
+      firstName
+      lastName
+      profPicLink
+      bio
+      favorites
+    }
+  }
+`;
+export const QUERY_THISUSERPOSTS = gql`
+  query thisUserPosts($userId: User!) {
+    thisUserPosts(userId: $userId) {
+      _id
+      title
+      titleImageLink
+      bodyImageLinkspostVid
+      description
+      pinned
+      tags
+      latitude
+      longitude
+      userId
+      albumId
+    }
+  }
+`;
+export const QUERY_THISUSERALBUMS = gql`
+  query thisUserAlbums($userId: User!) {
+    thisUserAlbums(userId: $userId) {
+      _id
+      title
+      imageLinkdescription
+      posts {
+        _id
+        title
+        titleImageLink
+        bodyImageLinkspostVid
+        description
+        pinned
+        tags
+        latitude
+        longitude
+        userId
+        albumId
+      }
+      userId
+      pinned
+    }
+  }
+`;
 
 export const QUERY_ALBUM = gql`
   query album($_id: ID!) {
@@ -60,7 +115,7 @@ export const QUERY_POST = gql`
 
 export const QUERY_USERPOSTS = gql`
   query userPosts($userId: ID!) {
-    post(userId: $userId) {
+    userPosts(userId: $userId) {
       _id
       title
       titleImageLink
@@ -78,7 +133,7 @@ export const QUERY_USERPOSTS = gql`
 
 export const QUERY_ALBUMPOSTS = gql`
   query albumPosts($albumId: ID!) {
-    post(albumId: $albumId) {
+    albumPosts(albumId: $albumId) {
       _id
       title
       titleImageLink
@@ -96,7 +151,7 @@ export const QUERY_ALBUMPOSTS = gql`
 
 export const QUERY_USERALBUMS = gql`
   query userAlbums($userId: ID!) {
-    album(userId: $userId) {
+    userAlbums(userId: $userId) {
       _id
       title
       imageLinkdescription
@@ -119,19 +174,6 @@ export const QUERY_USERALBUMS = gql`
   }
 `;
 
-/*NEW STUFF - KENNY*/
-
-export const QUERY_ALLPOST = gql`
-  query posts {
-    posts {
-      title
-      latitude
-      longitude
-      _id
-      tags
-    }
-  }
-`;
 
 export const QUERY_PLACEPOSTS = gql`
   query placePosts($latitude: Float!, $longitude: Float!) {
