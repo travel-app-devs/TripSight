@@ -1,0 +1,16 @@
+.postDiv {
+  background-color: #69a2ef;
+  margin-right: 1rem;
+  color: white;
+  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+}
+
+.postDiv h3 {
+  padding: .5rem;
+}
+
+.postDiv p {
+  padding: .5rem;
+}
+/*# sourceMappingURL=style.module.css.map */
