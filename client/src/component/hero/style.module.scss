@@ -43,46 +43,6 @@
                 margin-top: 0rem;
             }
         }
-
-        .heroForm {
-            width: 100%;
-            text-align: center;
-
-            input {
-                border: none;
-                border-radius: 0.8rem;
-                font-size: 2rem;
-                padding-left: 1rem;
-
-                &:focus {
-                    background: $white;
-                    color: $black;
-                    font-size: 2rem;
-                    padding-left: 1rem;
-                }
-            }
-
-            #heroSearchForm {
-                width: 35%;
-                height: 4rem;
-
-                &::placeholder {
-                    text-align: center;
-                }
-            }
-
-            #heroSearchButton {
-                width: 14%;
-                margin-left: 1rem;
-                background: $black;
-                color: $white;
-                font-size: 1.5rem;
-                font-family: $font;
-                font-weight: $regular;
-                text-transform: uppercase;
-                height: 4.2rem;
-            }
-        }
     }
 }
 
@@ -105,29 +65,6 @@
                 .heroTextDescription {
                     font-size: 1.6rem;
                     margin-top: 0rem;
-                }
-            }
-
-            .heroForm {
-                width: 100%;
-
-                input {
-
-                    font-size: 1.3rem;
-
-                    &:focus {
-                        font-size: 1.3rem;
-                    }
-                }
-
-                #heroSearchForm {
-                    width: 50%;
-                    height: 3.8rem;
-                }
-
-                #heroSearchButton {
-                    width: 30%;
-                    height: 4rem;
                 }
             }
         }
@@ -153,31 +90,6 @@
                 .heroTextDescription {
                     font-size: 1.6rem;
                     margin-top: 0rem;
-                }
-            }
-
-            .heroForm {
-                width: 100%;
-                text-align: center;
-
-                input {
-                    border: none;
-                    border-radius: 0.8rem;
-
-                    &:focus {
-                        background: $white;
-                        color: $black;
-                    }
-                }
-
-                #heroSearchForm {
-                    width: 50%;
-                    height: 3.8rem;
-                }
-
-                #heroSearchButton {
-                    width: 30%;
-                    height: 4rem;
                 }
             }
         }
