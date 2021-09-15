@@ -1,12 +1,20 @@
 .navContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   position: absolute;
   left: 5em;
   right: 5rem;
   top: 2rem;
+  background-color: #ffc136;
 }
 
 .navContainer .navLogoContainer {

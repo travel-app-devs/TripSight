@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <div className={style.navContainer}>
       <div className={style.navLogoContainer}>
-        <img id={style.sightLogo} src={tripSightLogo} />
+        <Link to='/'><img id={style.sightLogo} src={tripSightLogo} /></Link>
       </div>
       <nav className={style.nav}>
         <ul>

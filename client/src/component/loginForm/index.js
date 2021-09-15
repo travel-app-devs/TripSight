@@ -51,7 +51,7 @@ const LoginForm = () => {
             {data ? (
               <p>
                 Success! You are now logged in
-                <Link to={`/dashboard/${Auth.getProfile().data._id}`}></Link>
+                <Link to={`/dashboard`}></Link>
               </p>
             ) : (
               <form id={style.form} onSubmit={handleFormSubmit}>
