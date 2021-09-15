@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -16,6 +16,7 @@ import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
 import Profile from './pages/Profile'
+// import { apiKey } from '../../server/utils/apiKey'
 
 
 // Construct our main GraphQL API endpoint
@@ -23,7 +24,7 @@ const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-const apiKey = process.env.REACT_APP_MAPS_KEY
+
 
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -45,11 +46,36 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 function App() {
+  const [latLng, setLatLng] = useState({
+    lat: 0.0000,
+    lng: 0.0000
+  })
+  const getPlaceLatLng = (address) => {
+    let latitude, longitude, placeId;
+    new window.google.maps.Geocoder().geocode(
+      { address: `${address}` },
+      function (results, status) {
+        if (status === window.google.maps.GeocoderStatus.OK) {
+          placeId = results[0].place_id;
+          latitude = results[0].geometry.location.lat();
+          longitude = results[0].geometry.location.lng();
+          setLatLng({
+            lat: latitude,
+            lng: longitude
+          })
+          return console.log("coordinates: ", latLng.lat, latLng.lng)
+        } else {
+          alert(
+            "Geocode was not successful for the following reason: " + status
+          );
+        }
+      }
+    );
+  };
   useEffect(() => {
     if(!document.querySelector("#here")) {
-    console.log(apiKey)
     const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
     googleMapScript.async = true;
     googleMapScript.id = "here";
     window.document.body.appendChild(googleMapScript);
@@ -64,7 +90,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             {/* <Header /> */}
-            <Home />
+            <Home getPlaceLatLng={getPlaceLatLng} />
             {/* <Footer /> */}
           </Route>
           <Route exact path="/login">
@@ -74,7 +100,7 @@ function App() {
             <Signup />
           </Route>
           <Route exact path="/results">
-            <SearchResults />
+            <SearchResults latLng={latLng} />
           </Route>
           <Route exact path="/dashboard/:userId">
             <Navigation />

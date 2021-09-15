@@ -1,11 +1,12 @@
 import style from "./style.module.css";
 import { useQuery } from "@apollo/client";
-import { QUERY_PLACEPOSTS } from "../../utils/queries";
+import { QUERY_ALLPOSTS } from "../../utils/queries";
 import SearchField from "../searchField";
-import axios from 'axios';
+import Map from '../map'
+
 
 const SearchResults = (props) => {
-  const { loading, data } = useQuery(QUERY_PLACEPOSTS);
+  const { loading, data } = useQuery(QUERY_ALLPOSTS);
 
   const postList = data?.posts || [];
   console.log(postList);
@@ -13,6 +14,7 @@ const SearchResults = (props) => {
   return (
     <div className={style.searchResultsContainer}>
       <div className={style.searchFieldContainer}>
+        <Map latLng={props.latLng}/>
         <h1>Search Again</h1>
         <SearchField />
       </div>
