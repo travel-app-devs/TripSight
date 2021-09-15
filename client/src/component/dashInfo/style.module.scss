@@ -10,26 +10,38 @@
         margin: 5rem;
         text-align: left;
         background-color: white;
-        
+
     
         .welcome {
             margin: 1rem;
             color: black;
             text-align: center;
             font-size: xx-large;
+
+            a {
+                text-decoration: none;
+
+            }
     
             #username {
-                color: $orange
+                color: $orange;
+
+                &:hover {
+                    color: rgb(235, 81, 34)
+                }
             }
+
             
     
         }
     
         button {
+            font-family: $font;
+            margin-top: -3.9rem;
             background-color: $orange;
             border: solid .1rem $orange;
             border-radius: .2rem;
-            padding: .4rem;
+            padding: 1rem;
             color: white;
             box-shadow: .1rem .2rem .2rem rgb(235, 80, 69);
             float: right;
