@@ -48,8 +48,8 @@ const SignupForm = () => {
               <div className="card-body">
                 {data ? (
                   <p>
-                    Success! You may now head{' '}
-                    <Link to="/me">back to the homepage.</Link>
+                    Success! You are signed in
+                    <Link to={`/dashboard/${Auth.getProfile().data._id}`}></Link>
                   </p>
                 ) : (
                   <form id={style.form} onSubmit={handleFormSubmit}>
