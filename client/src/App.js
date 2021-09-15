@@ -15,7 +15,7 @@ import SearchResults from './pages/searchResults'
 import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
-import viewPost from './pages/viewPost'
+import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 
 
@@ -84,8 +84,8 @@ function App() {
           <Route exact path="/newpost">
             <NewPost />
           </Route>
-          <Route exact path="/viewpost">
-            <viewPost />
+          <Route exact path="/viewpost/:userId">
+            <Viewpost />
           </Route>
           {/* <Route exact path="/me">
             <Profile />

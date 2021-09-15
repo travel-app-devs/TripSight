@@ -3,9 +3,12 @@ import { useQuery } from "@apollo/client";
 import { Link } from 'react-router-dom';
 import { QUERY_ALLPOST } from "../../utils/queries";
 import SearchField from "../searchField";
-import axios from 'axios';
+//import axios from 'axios';
 
 const SearchResults = (props) => {
+
+//REACTIVATE BACK WHEN DONE TESTING
+  /*
   const { loading, data } = useQuery(QUERY_PLACEPOSTS);
   const config = {
     method: 'get',
@@ -20,6 +23,9 @@ const SearchResults = (props) => {
   .catch(function (error) {
     console.log(error);
   });
+  */
+  
+  const { loading, data } = useQuery(QUERY_ALLPOST);
 
   const postList = data?.posts || [];
   console.log(postList);
