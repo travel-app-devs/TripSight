@@ -1,34 +1,51 @@
-.searchContainer {
+.searchResultsContainer {
   padding-top: 2rem;
   padding-left: 5rem;
   width: 65%;
   margin: auto;
 }
 
-.searchContainer h1 {
+.searchResultsContainer .searchFieldContainer {
+  margin-top: 10rem;
+}
+
+.searchResultsContainer .searchFieldContainer h1 {
+  padding-bottom: 3rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
   font-size: 4rem;
 }
 
-.searchContainer .searchResultsSection {
+.searchResultsContainer .searchContainer {
+  margin-top: 10rem;
+}
+
+.searchResultsContainer .searchContainer h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 4rem;
+  padding-bottom: 3rem;
+}
+
+.searchResultsContainer .searchContainer .searchResultsSection {
   border: 0.2rem solid black;
   border-radius: 0.8rem;
 }
 
-.searchContainer .searchResultsSection .searchSection {
+.searchResultsContainer .searchContainer .searchResultsSection .searchSection {
   padding: 2rem;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
 }
 
-.searchContainer .searchResultsSection .searchSection .searchTitle {
+.searchResultsContainer .searchContainer .searchResultsSection .searchSection .searchTitle {
   font-size: 2rem;
 }
 
-.searchContainer .searchResultsSection .searchSection button {
+.searchResultsContainer .searchContainer .searchResultsSection .searchSection button {
   background: black;
   border: none;
   color: white;
@@ -36,7 +53,7 @@
   border-radius: 0.4rem;
 }
 
-.searchContainer .searchResultsSection .searchSection button:hover {
+.searchResultsContainer .searchContainer .searchResultsSection .searchSection button:hover {
   background: #ff784f;
 }
 /*# sourceMappingURL=style.module.css.map */
