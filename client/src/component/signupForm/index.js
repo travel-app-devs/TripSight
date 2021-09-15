@@ -49,7 +49,7 @@ const SignupForm = () => {
                 {data ? (
                   <p>
                     Success! You are signed in
-                    <Link to={`/dashboard/${Auth.getProfile().data._id}`}></Link>
+                    <Link to={`/dashboard`}></Link>
                   </p>
                 ) : (
                   <form id={style.form} onSubmit={handleFormSubmit}>
