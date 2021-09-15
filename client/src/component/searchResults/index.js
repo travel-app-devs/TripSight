@@ -2,9 +2,23 @@ import style from "./style.module.css";
 import { useQuery } from "@apollo/client";
 import { QUERY_PLACEPOSTS } from "../../utils/queries";
 import SearchField from "../searchField";
+import axios from 'axios';
 
-const SearchResults = () => {
+const SearchResults = (props) => {
   const { loading, data } = useQuery(QUERY_PLACEPOSTS);
+  const config = {
+    method: 'get',
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.6897%2C139.6922&radius=15000&key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg`,
+    headers: { }
+  };
+  
+  axios(config)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
   const postList = data?.posts || [];
   console.log(postList);
