@@ -103,29 +103,57 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    updatePost: async (parent, args) => {
+    updateUserDev: async (parent, args) => {
+      const updated = await User.findOneAndUpdate(
+        {_id: args._id},
+        args
+      );
+      return updated;
+    },
+    updatePost: async (parent, args, context) => {
       if (context.user) {
+        const find = await Post.findById(args._id);
+        if (find.userId === context.user._id){
         const updated = await Post.findOneAndUpdate(
-          { userId: context.user._id },
+          {_id: args._id},
           args,
           { new: true }
         );
         return updated;
+        }
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    updatePostDev: async (parent, args) => {
+        const updated = await Post.findOneAndUpdate(
+          {_id: args._id},
+          args
+        );
+        return updated;
+      },
     updateAlbum: async (parent, args) => {
       if (context.user) {
+        const find = await Album.findById(args._id);
+        if (find.userId === context.user._id){
         const updated = await Album.findOneAndUpdate(
-          { userId: context.user._id },
+          {_id: args._id},
           args,
           { new: true }
         );
         return updated;
+        }
       }
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
+    updateAlbumDev: async (parent, args) => {
+      const updated = await Album.findOneAndUpdate(
+        {_id: args._id},
+        args
+      );
+      return updated;
+    },
   }
 };
+
 
 module.exports = resolvers;
