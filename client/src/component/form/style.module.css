@@ -4,23 +4,27 @@
 
 .formContainer .form {
   padding: 3%;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #69a2ef;
   font-family: "Roboto", sans-serif;
   color: white;
   height: 100%;
-  box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
 }
 
 .formContainer .form .submitPost {
   display: inline;
   float: right;
-  background-color: #878787;
-  border: solid 0.1rem #878787;
+  background-color: #ff784f;
+  border: solid 0.1rem #ff784f;
   border-radius: .2rem;
   padding: .4rem;
   color: white;
-  box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+  -webkit-box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+          box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
 }
 
 .formContainer .form .submitPost:hover {
@@ -28,7 +32,8 @@
 }
 
 .formContainer .form .submitPost:active {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   padding: 0.5rem;
 }
 

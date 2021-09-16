@@ -87,7 +87,7 @@ export default function Form () {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
-        const userId = Auth.getProfile().data.userId
+        const userId = Auth.getProfile().data._id
         let sepTags = tagsInput.split(',')
         let sepLinks = bodyImageLink.split(',')
         const tagsArray = sepTags.map(tag => tag.trim())

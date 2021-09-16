@@ -13,7 +13,7 @@ function Map(props) {
         height: '400px'
     };
     console.log("coordinates: ", props.latLng.lat, props.latLng.lng)
-    const { loading, data } = useQuery(QUERY_ALLPOSTS, {});
+    const { loading, data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
 
     const handleActiveMarker = (marker) => {
