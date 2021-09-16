@@ -82,7 +82,7 @@ const typeDefs = gql`
         latitude: Float!
         longitude: Float!
         description: String
-        userId: ID!
+        userId: ID
         pinned: Boolean
         tags: String
         albumId: ID
