@@ -89,31 +89,57 @@ const typeDefs = gql`
         albumId: ID
     ): Post
     updateUser(
-        username: String! 
-        email: String! 
-        password: String!
+        _id: ID!
+        username: String 
+        email: String
+        password: String
         firstName: String
         lastName: String
         profPicLink: String
         bio: String
     ): Auth
     updateAlbum(
-        title: String!
+        _id: ID!
+        title: String
         imageLink: String
         description: String
-        userId: String!
+        userId: String
+        pinned: Boolean
+    ): Album
+    updateAlbumDev(
+        _id: ID!
+        title: String
+        imageLink: String
+        description: String
+        userId: String
         pinned: Boolean
     ): Album
     updatePost(
-        title: String! 
+        _id: ID!
+        title: String 
         titleImageLink: String
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Float!
-        longitude: Float!
+        latitude: Float
+        longitude: Float
         description: String
         userId: String!
+        pinned: Boolean
+        tags: String
+        albumId: ID
+    ): Post
+    updatePostDev(
+        _id: ID!
+        title: String 
+        titleImageLink: String
+        textBody: String
+        bodyImageLinks: [String]
+        postVid: String
+        latitude: Float
+        longitude: Float
+        description: String
+        userId: String
         pinned: Boolean
         tags: String
         albumId: ID
