@@ -7,7 +7,7 @@ const resolvers = {
     users: async () => {
       return User.find({});
     },
-    posts: async () => {
+    allPosts: async () => {
       return Post.find({});
     },
     albums: async () => {
@@ -44,15 +44,15 @@ const resolvers = {
       return Album.findOne(params);
     },
     userPosts: async (parent, { _id }) => {
-      const params = _id ? { _id: _id } : {};
+      const params = _id ? { userId: _id } : {};
       return Post.find(params);
     },
-    albumPosts: async (parent, { userId }) => {
-      const params = userId ? { userId: userId } : {};
+    albumPosts: async (parent, { albumId }) => {
+      const params = albumId ? { albumId: albumId } : {};
       return Post.find(params);
     },
-    userAlbums: async (parent, { _id }) => {
-      const params = _id ? { _id: _id } : {};
+    userAlbums: async (parent, { userId }) => {
+      const params = _id ? { userId: userId } : {};
       return Album.find(params);
     },
     placePosts: async (parent, { latitude, longitude }) => {

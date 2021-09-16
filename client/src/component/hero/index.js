@@ -2,7 +2,7 @@ import style from "./style.module.css";
 import SearchField from "../searchField";
 //import hero from "../../assets/images/hero-image.png";
 
-const Hero = () => {
+const Hero = ({getPlaceLatLng}) => {
   /*
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState({
@@ -44,7 +44,7 @@ const Hero = () => {
               <h1 className={style.heroTextBigHeader}>TripSight</h1>
           <div className={style.heroDescriptionContainer}>
               <p className={style.heroTextDescription}>Find travel recommendations from real people that have been there previously!</p>
-              <SearchField />
+              <SearchField getPlaceLatLng={getPlaceLatLng} />
           </div>
           </div>
       </div>
