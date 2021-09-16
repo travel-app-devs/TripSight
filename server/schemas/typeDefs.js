@@ -98,6 +98,16 @@ const typeDefs = gql`
         profPicLink: String
         bio: String
     ): Auth
+    updateUserDev(
+        _id: ID!
+        username: String 
+        email: String
+        password: String
+        firstName: String
+        lastName: String
+        profPicLink: String
+        bio: String
+    ): Auth
     updateAlbum(
         _id: ID!
         title: String

@@ -18,7 +18,7 @@ function Map() {
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
     const incLatLng = useContext(LatLngContext);
-
+    console.log("coordinates: ", incLatLng)
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
             return;
