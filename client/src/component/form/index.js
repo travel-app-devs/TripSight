@@ -83,16 +83,16 @@ export default function Form () {
             const { data } = await addPost({
                 variables: {
                     title: 'title', 
-                    titleImageLink: null, 
-                    textBody: null, 
-                    bodyImageLinks: null, 
-                    postVid: null, 
+                    titleImageLink: titleImageLink, 
+                    textBody: postInput, 
+                    bodyImageLinks: linksArray, 
+                    postVid: postVidLink, 
                     latitude: 1, 
                     longitude: 1, 
                     description: null, 
                     userId: userId, 
                     pinned: false, 
-                    tags: null
+                    tags: tagsInput
                 }
             })
             console.log(post)
