@@ -84,7 +84,7 @@ function App() {
   }, []);
   return (
     <ApolloProvider client={client}>
-      <LatLngContext.Provider value={[latLng, setLatLng]}>
+      <LatLngContext.Provider value={latLng}>
       <Router>
         <div className="App">
           <Link to='/'></Link>
