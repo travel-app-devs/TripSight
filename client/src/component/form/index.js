@@ -4,7 +4,6 @@ import Auth from '../../utils/auth'
 
 import { useMutation } from '@apollo/client'
 import { ADD_POST } from '../../utils/mutations'
-import { QUERY_USERPOSTS } from '../../utils/queries'
 
 export default function Form () {
     const [ titleInput, setTitleInput ] = useState('')
@@ -19,21 +18,7 @@ export default function Form () {
     const [titleCharacterCount, setTitleCharacterCount] = useState(0);
     const [postCharacterCount, setPostCharacterCount] = useState(0);
 
-    const [ addPost, { error }] = useMutation(ADD_POST, {
-        update(cache, { data: { addPost } }) {
-            try {
-                const { userPosts } = cache.readQuery({ query: QUERY_USERPOSTS })
-                
-                cache.writeQuery({
-                    query: QUERY_USERPOSTS,
-                    data: { userPosts: [addPost, ...userPosts] },
-                })
-                
-            } catch (err) {
-                console.error(err)
-            }
-        }
-    })
+    const [addPost, { error, data }] = useMutation(ADD_POST)
 
     const handleChangeTitle = (event) => {
         const { name, value } = event.target
@@ -92,17 +77,22 @@ export default function Form () {
         let sepLinks = bodyImageLink.split(',')
         const tagsArray = sepTags.map(tag => tag.trim())
         const linksArray = sepLinks.map(link => link.trim())
-        setPost({title: titleInput, textBody: postInput, tags: tagsArray, titleImageLink: titleImageLink, bodyImageLink: linksArray, postVid: postVidLink, userId: userId})
+        // title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned, tags: $tags
+        setPost({title: titleInput, textBody: postInput, tags: tagsInput, titleImageLink: titleImageLink, bodyImageLinks: linksArray, postVid: postVidLink, userId: userId})
         try {
             const { data } = await addPost({
                 variables: {
-                    title: post.title,
-                    textBody: post.textBody,
-                    tags: post.tags,
-                    titleImageLink: post.titleImageLink,
-                    bodyImageLinks: post.bodyImageLink,
-                    postVid: post.postVid,
-                    userId: post.userId
+                    title: 'title', 
+                    titleImageLink: null, 
+                    textBody: null, 
+                    bodyImageLinks: null, 
+                    postVid: null, 
+                    latitude: 1, 
+                    longitude: 1, 
+                    description: null, 
+                    userId: userId, 
+                    pinned: false, 
+                    tags: null
                 }
             })
             console.log(post)

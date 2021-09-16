@@ -68,7 +68,8 @@ function App() {
             {/* <Footer /> */}
           </Route>
           <Route exact path="/login">
-            {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />}
+            {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
+            <Login />
           </Route>
           <Route exact path="/signup">
             <Signup />

@@ -37,15 +37,11 @@ export const ADD_ALBUM = gql`
 `;
 
 export const ADD_POST = gql`
-    mutation addPost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $latitude: Int!, $longitude: Int!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
-        addPost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
-            token
-            user {
-                _id
-                username
-            }
-        }
+  mutation addPost($addPostTitle: String!, $addPostLatitude: Float!, $addPostLongitude: Float!, $addPostUserId: ID!, $addPostTitleImageLink: String, $addPostTextBody: String, $addPostBodyImageLinks: [String], $addPostPostVid: String, $addPostDescription: String, $addPostPinned: Boolean, $addPostTags: String, $addPostAlbumId: ID) {
+    post(title: $addPostTitle, latitude: $addPostLatitude, longitude: $addPostLongitude, userId: $addPostUserId, titleImageLink: $addPostTitleImageLink, textBody: $addPostTextBody, bodyImageLinks: $addPostBodyImageLinks, postVid: $addPostPostVid, description: $addPostDescription, pinned: $addPostPinned, tags: $addPostTags, albumId: $addPostAlbumId) {
+      title
     }
+}
 `;
 
 export const UPDATE_USER = gql`

@@ -87,7 +87,7 @@ export const QUERY_ALBUM = gql`
 
 export const QUERY_POST = gql`
   query post($_id: ID!) {
-    post(_id: $_id) {
+    posts(_id: $_id) {
       _id
       title
       titleImageLink
@@ -109,14 +109,13 @@ export const QUERY_USERPOSTS = gql`
       _id
       title
       titleImageLink
-      bodyImageLinkspostVid
+      bodyImageLinks
+      postVid
       description
       pinned
       tags
       latitude
       longitude
-      userId
-      albumId
     }
   }
 `;
