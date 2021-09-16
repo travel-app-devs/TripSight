@@ -18,6 +18,8 @@ import Navigation from './component/navigation'
 import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
+import LatLngContext from './context/LatLngContext';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -47,8 +49,8 @@ const client = new ApolloClient({
 });
 function App() {
   const [latLng, setLatLng] = useState({
-    lat: 0.0000,
-    lng: 0.0000
+    lat: 7.6545,
+    lng: -20.4235
   })
   const getPlaceLatLng = (address) => {
     let latitude, longitude, placeId;
@@ -83,6 +85,7 @@ function App() {
   }, []);
   return (
     <ApolloProvider client={client}>
+      <LatLngContext.Provider value={latLng}>
       <Router>
         <div className="App">
           <Link to='/'></Link>
@@ -101,7 +104,7 @@ function App() {
             <Signup />
           </Route>
           <Route exact path="/results">
-            <SearchResults latLng={latLng} />
+            <SearchResults />
           </Route>
           <Route exact path="/dashboard">
             <Navigation />
@@ -127,6 +130,7 @@ function App() {
         </Switch>
         </div>
       </Router>
+      </LatLngContext.Provider>
     </ApolloProvider>
     
 

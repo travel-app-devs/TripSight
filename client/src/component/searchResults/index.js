@@ -5,14 +5,14 @@ import SearchField from "../searchField";
 import Map from '../map'
 
 
-const SearchResults = (props) => {
+const SearchResults = () => {
   // const { data } = useQuery(QUERY_ALLPOSTS);
   // const postList = data?.allPosts || [];
   // console.log(postList);
   return (
     <div className={style.searchResultsContainer}>
       <div className={style.searchFieldContainer}>
-        <Map latLng={props.latLng} />
+        <Map />
         <h1>Search Again</h1>
         <SearchField />
       </div>
