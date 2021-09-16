@@ -1,6 +1,7 @@
-import React, { useState, useQuery } from 'react'
+import React, { useState } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 // import { apiKey } from '../../../../server/utils/apiKey'
+import { useQuery } from '@apollo/client';
 import { QUERY_ALLPOSTS } from "../../utils/queries";
 
 
@@ -9,11 +10,12 @@ import { QUERY_ALLPOSTS } from "../../utils/queries";
 function Map(props) {
     const containerStyle = {
         // We can change this, just a stand-in
-        width: '400px',
+        width: '600px',
         height: '400px'
     };
     console.log("coordinates: ", props.latLng.lat, props.latLng.lng)
-    const { loading, data } = useQuery(QUERY_ALLPOSTS);
+    console.log(QUERY_ALLPOSTS)
+    const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
 
     const handleActiveMarker = (marker) => {
@@ -24,17 +26,14 @@ function Map(props) {
     };
 
     const handleOnLoad = (map) => {
-        const bounds = new window.google.maps.LatLngBounds();
+        const bounds = new window.google.maps.LatLngBounds(props.latLng);
         postList.forEach(({ position }) => bounds.extend(position));
         map.fitBounds(bounds);
     };
 
-    const postList = data?.posts || [{}];
+    const postList = data?.allPosts || [];
     console.log(postList);
     return (
-        <LoadScript
-            googleMapsApiKey={"AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg"}
-        >
             <GoogleMap
                 onLoad={handleOnLoad}
                 onClick={() => setActiveMarker(null)}
@@ -54,7 +53,6 @@ function Map(props) {
                     </Marker>
                 ))}
             </GoogleMap>
-        </LoadScript>
     )
 }
 

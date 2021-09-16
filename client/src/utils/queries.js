@@ -167,7 +167,7 @@ export const QUERY_USERALBUMS = gql`
 
 export const QUERY_PLACEPOSTS = gql`
   query placePosts($latitude: Float!, $longitude: Float!) {
-    posts {
+    placePosts {
       title
       latitude
       longitude
@@ -179,7 +179,7 @@ export const QUERY_PLACEPOSTS = gql`
 
 export const QUERY_ALLPOSTS = gql`
   query allPosts {
-    posts {
+    allPosts {
       _id
       title
       latitude
