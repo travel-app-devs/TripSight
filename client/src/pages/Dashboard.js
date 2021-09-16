@@ -17,11 +17,18 @@ const Dashboard = () => {
   if (loading) {
     return <div>Loading....</div>;
   }
-
+  if (!userProfile?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
 
   return (
     <div>
-      <DashInfo user={userProfile} />
+      <DashInfo user={userProfile} userPosts={data.userPosts}/>
 
       </div>
   );

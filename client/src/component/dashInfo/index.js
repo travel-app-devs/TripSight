@@ -1,7 +1,8 @@
 import style from './style.module.css'
 import { Link } from 'react-router-dom'
 import PostList from '../../component/postList'
-const DashInfo = ({ user }) => {
+const DashInfo = ({ user, userPosts }) => {
+    console.log()
     return (
         <div className={style.dashContainer}>
             <div className={style.dashHeader}>
@@ -13,7 +14,7 @@ const DashInfo = ({ user }) => {
                     <div className={style.postList}>
                         <h3>Your Posts</h3>
                         <PostList
-                            posts={user.posts}
+                            userPosts={userPosts}
                             title={`${user.email}'s Posts`}
                             showTitle={false}
                             showUsername={false}
@@ -23,7 +24,7 @@ const DashInfo = ({ user }) => {
                     <div className={style.favorites}>
                         <h3>Your Favorites</h3>
                         <PostList
-                            posts={user.posts}
+                            userPosts={userPosts}
                             title={`${user.email}'s Posts`}
                             showTitle={false}
                             showUsername={false}
