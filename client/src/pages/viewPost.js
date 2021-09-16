@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import {QUERY_USERPOSTS } from '../utils/queries';
+import {QUERY_POST} from '../utils/queries';
 
 const ViewPost = () => {
-    const { loading, data } = useQuery(QUERY_USERPOSTS);
+    const { loading, data } = useQuery(QUERY_POST);
     console.log('query data', data)
 
-    const userData = data?.userPosts || [];
+    const userData = data?.Posts || [];
     console.log(userData);
 
     const { userId: userParam } = useParams();
