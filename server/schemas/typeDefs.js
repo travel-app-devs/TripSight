@@ -103,7 +103,7 @@ const typeDefs = gql`
         title: String
         imageLink: String
         description: String
-        userId: String!
+        userId: String
         pinned: Boolean
     ): Album
     updateAlbumDev(

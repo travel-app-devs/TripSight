@@ -103,6 +103,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    updateUserDev: async (parent, args) => {
+      const updated = await User.findOneAndUpdate(
+        {_id: args._id},
+        args
+      );
+      return updated;
+    },
     updatePost: async (parent, args, context) => {
       if (context.user) {
         const find = await Post.findById(args._id);
