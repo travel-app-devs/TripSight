@@ -91,7 +91,9 @@ export const QUERY_POST = gql`
       _id
       title
       titleImageLink
-      bodyImageLinkspostVid
+      bodyImage
+      textBody
+      LinkspostVid
       description
       pinned
       tags
@@ -108,12 +110,12 @@ export const QUERY_USERPOSTS = gql`
     userPosts(userId: $userId) {
       _id
       title
+      textBody
       titleImageLink
       bodyImageLinks
       postVid
       description
       pinned
-      tags
       latitude
       longitude
     }

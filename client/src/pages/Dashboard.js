@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <DashInfo user={userProfile} />
+      <DashInfo user={userProfile} userPosts={data.userPosts}/>
 
       </div>
   );
