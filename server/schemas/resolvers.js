@@ -115,7 +115,7 @@ const resolvers = {
         const find = await Post.findById(args._id);
         if (find.userId === context.user._id){
         const updated = await Post.findOneAndUpdate(
-          {_id: args._id},
+          {_id: context.user._id},
           args,
           { new: true }
         );
