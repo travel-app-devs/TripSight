@@ -18,13 +18,6 @@ function Map() {
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
     const incLatLng = useContext(LatLngContext);
-    const mapLatLng = {
-        position: {
-            lat: incLatLng.lat,
-            lng: incLatLng.lng
-        }
-    }
-    console.log(mapLatLng)
 
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
@@ -34,7 +27,7 @@ function Map() {
     };
 
     const handleOnLoad = (map) => {
-        const bounds = new window.google.maps.LatLngBounds(mapLatLng);
+        const bounds = new window.google.maps.LatLngBounds(incLatLng);
         postList.forEach(({ position }) => bounds.extend(position));
         map.fitBounds(bounds);
     };
