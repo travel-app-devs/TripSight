@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const LatLngContext = createContext()
+const LatLngContext = createContext({})
 
 export default LatLngContext

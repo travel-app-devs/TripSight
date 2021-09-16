@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 // import { apiKey } from '../../../../server/utils/apiKey'
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLPOSTS } from "../../utils/queries";
+import LatLngContext from '../../context/LatLngContext';
 
 
 
 
-function Map(props) {
+function Map() {
     const containerStyle = {
         // We can change this, just a stand-in
         width: '600px',
         height: '400px'
     };
-    console.log("coordinates: ", props.latLng.lat, props.latLng.lng)
     console.log(QUERY_ALLPOSTS)
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
+    const incLatLng = useContext(LatLngContext);
+    const mapLatLng = {
+        position: {
+            lat: incLatLng.lat,
+            lng: incLatLng.lng
+        }
+    }
+    console.log(mapLatLng)
 
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
@@ -26,7 +34,7 @@ function Map(props) {
     };
 
     const handleOnLoad = (map) => {
-        const bounds = new window.google.maps.LatLngBounds(props.latLng);
+        const bounds = new window.google.maps.LatLngBounds(mapLatLng);
         postList.forEach(({ position }) => bounds.extend(position));
         map.fitBounds(bounds);
     };

@@ -1,9 +1,9 @@
 import SearchResults from '../component/searchResults';
 
-export default function searchResults(props) {
+export default function searchResults() {
     return(
         <div>
-            <SearchResults latLng={props.latLng} />
+            <SearchResults />
         </div>
     )
 }
