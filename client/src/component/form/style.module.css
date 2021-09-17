@@ -56,6 +56,7 @@
 }
 
 .formContainer .form div label {
+  font-size: large;
   margin-left: .4rem;
 }
 

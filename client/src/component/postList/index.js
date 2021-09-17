@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 const PostList = ({ type, userPosts }) => {
     console.log('posts', userPosts)
-    // const userPosts = [{id: 1, title: 'new post 1', textBody: 'textBody'}, {id: 2, title: 'new post 2', textBody: 'textBody'}, {id: 3, title: 'new post 3', textBody: 'textBody'}, {id: 4, title: 'new post 4', textBody: 'textBody'}]
     const posts = type ? userPosts.map(post => {
         var postContent = ''
         if (post.textBody) {
@@ -15,18 +14,18 @@ const PostList = ({ type, userPosts }) => {
         }
         return(
             <div className={style.postDiv} key={post._id}>
-                <Link to={`/posts/${post._id}`}><h3 className={style.postTitle}>{post.title}</h3></Link>
+                <Link to={`/viewpost/${post._id}`}><h3 className={style.postTitle}>{post.title}</h3></Link>
                 <p>{postContent}</p>
             </div>
         )}) : userPosts.map(post => {
             return(
                 <div className={style.postDiv} key={post._id}>
-                    <Link to={`/posts/${post._id}`}><h3 className={style.postTitle}>{post.title}</h3></Link>
+                    <h3 className={style.postTitle}><Link className={style.postTitle} to={`/viewPost/${post._id}`}>{post.title}</Link></h3>
                 </div>
             )}) 
     return (
         <div>
-            {posts}
+            {!posts.length ? <p>No Posts Yet</p> : posts}
         </div>
     )
 }

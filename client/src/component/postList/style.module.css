@@ -6,6 +6,15 @@
           box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
 }
 
+a {
+  color:white !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: rgb(226, 224, 224) !important;
+}
+
 .postDiv h3 {
   padding: .5rem;
 }

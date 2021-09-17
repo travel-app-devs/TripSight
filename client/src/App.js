@@ -77,12 +77,12 @@ function App() {
   };
   const  [place, setPlace] = useState('');
   useEffect(() => {
-    if (!document.querySelector("#here")) {
-      const googleMapScript = document.createElement("script");
-      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
-      googleMapScript.async = true;
-      googleMapScript.id = "here";
-      window.document.body.appendChild(googleMapScript);
+    if(!document.querySelector("#here")) {
+    const googleMapScript = document.createElement("script");
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?libraries=places`;
+    googleMapScript.async = true;
+    googleMapScript.id = "here";
+    window.document.body.appendChild(googleMapScript);
     }
   }, []);
   return (
@@ -99,13 +99,16 @@ function App() {
             {/* <Footer /> */}
           </Route>
           <Route exact path="/login">
+            <Navigation />
             {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
             <Login />
           </Route>
           <Route exact path="/signup">
+            <Navigation />
             <Signup />
           </Route>
           <Route exact path="/results">
+            <Navigation />
             <SearchResults />
           </Route>
           <Route exact path="/dashboard">
@@ -117,19 +120,17 @@ function App() {
             <NewPost />
           </Route>
           <Route exact path="/viewpost/:postId">
+            <Navigation />
             <Viewpost />
           </Route>
-          {/* <Route exact path="/me">
+          <Route exact path="/me">
             <Profile />
           </Route>
           <Route exact path="/profile/:userId">
             <Navigation />
             <Profile />
           </Route>
-          {/* <Route exact path="/posts/:postId">
-            <SinglePost />
-          </Route> */}
-              </Switch>
+        </Switch>
             </div>
           </Router>
       </PlaceContext.Provider>

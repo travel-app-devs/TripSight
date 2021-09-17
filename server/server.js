@@ -1,6 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
-// const path = require('path');
+const path = require('path');
 const db = require('./config/connection')
 const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express');
@@ -31,14 +31,16 @@ app.use(express.json());
 // app.use(cors({
 //     origin: `http://localhost:${PORT}`
 // }))
+console.log('nodeENV', process.env.NODE_ENV);
+console.log('path',path);
+if (process.env.NODE_ENV === 'production') {
+     //app.use(express.static(path.join(__dirname, '../client/build')));
+     app.use(express.static(path.join(__dirname, '../client/build')));
+ }
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../client/build')));
-// }
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+ app.get('*', (req, res) => {
+     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+ });
 
 db.once('open', () => {
     app.listen(PORT, () => {

@@ -10,6 +10,10 @@ export const QUERY_USER = gql`
       lastName
       profPicLink
       bio
+      favorites {
+        _id
+        title
+      }
     }
   }
 `;
@@ -44,7 +48,8 @@ export const QUERY_THISUSERALBUMS = gql`
         _id
         title
         titleImageLink
-        bodyImageLinkspostVid
+        bodyImageLinks
+        postVid
         description
         pinned
         tags
@@ -68,7 +73,8 @@ export const QUERY_ALBUM = gql`
         _id
         title
         titleImageLink
-        bodyImageLinkspostVid
+        bodyImageLinks
+        postVid
         description
         pinned
         tags
@@ -111,6 +117,9 @@ export const QUERY_USERPOSTS = gql`
       description
       pinned
       place
+      userId {
+        _id
+      }
     }
   }
 `;
@@ -121,7 +130,8 @@ export const QUERY_ALBUMPOSTS = gql`
       _id
       title
       titleImageLink
-      bodyImageLinkspostVid
+      bodyImageLinks
+      postVid
       description
       pinned
       tags

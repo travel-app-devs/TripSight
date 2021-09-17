@@ -24,7 +24,7 @@ const DashInfo = ({ user, userPosts }) => {
                     <div className={style.favorites}>
                         <h3>Your Favorites</h3>
                         <PostList
-                            userPosts={userPosts}
+                            userPosts={user.favorites}
                             title={`${user.email}'s Posts`}
                             showTitle={false}
                             showUsername={false}

@@ -31,6 +31,7 @@
 }
 
 .navContainer .nav ul li {
+  display: inline;
   font-size: 2rem;
 }
 

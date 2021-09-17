@@ -103,6 +103,7 @@ export default function Form () {
             setTitleLinksInput('')
             setBodyLinksInput('')
             setVidLinksInput('')
+            window.location.assign('/dashboard')
         } catch (err) {
             console.log(err)
         }
