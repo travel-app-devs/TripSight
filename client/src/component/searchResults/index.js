@@ -1,18 +1,17 @@
 import style from "./style.module.css";
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from "@apollo/client";
-import LatLngContext from "../../context/LatLngContext";
+import PlaceContext from "../../context/PlaceContext";
 import SearchField from "../searchField";
 import Map from '../map'
 
 
 const SearchResults = () => {
-  const theLatLng = useContext(LatLngContext);
-  console.log(theLatLng.latLng)
-  const { data } = useQuery(theLatLng.QUERY_PLACEPOSTS, {
+  const thePlace = useContext(PlaceContext);
+  console.log("This Must Be The Place.place: ", thePlace.place)
+  const { data } = useQuery(thePlace.QUERY_PLACEPOSTS, {
     variables: {
-      latitude: theLatLng.latLng.lat,
-      longitude: theLatLng.latLng.lng
+      place: thePlace.place
     }
   });
   const postList = data?.placePosts || [];
@@ -25,7 +24,12 @@ const SearchResults = () => {
         <SearchField />
       </div>
       <div className={style.searchContainer}>
-        <h1>Search Results</h1>
+        <h1>Search Results in {thePlace.place}</h1>
+        {postList.map(({ _id, title, place }) => (
+          <Link to={`/viewpost/${_id}`}>
+                  <div>{title}</div>
+                </Link>
+        ))}
       </div>
     </div>
   );

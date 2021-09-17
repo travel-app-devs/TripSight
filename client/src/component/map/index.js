@@ -4,7 +4,7 @@ import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/ap
 // import { apiKey } from '../../../../server/utils/apiKey'
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLPOSTS } from "../../utils/queries";
-import LatLngContext from '../../context/LatLngContext';
+import PlaceContext from '../../context/PlaceContext';
 
 
 
@@ -18,8 +18,8 @@ function Map() {
     console.log(QUERY_ALLPOSTS)
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
-    const incLatLng = useContext(LatLngContext);
-    console.log("coordinates: ", incLatLng)
+    const thePlace = useContext(PlaceContext);
+    console.log("This Must Be The Place: ", thePlace)
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
             return;
@@ -27,25 +27,21 @@ function Map() {
         setActiveMarker(marker);
     };
 
-    const handleOnLoad = (map) => {
-        const bounds = new window.google.maps.LatLngBounds(incLatLng.latLng);
-        postList.forEach(({ position }) => bounds.extend(position));
-        map.fitBounds(bounds);
-    };
-
     const postList = data?.allPosts || [];
     console.log(postList);
     return (
             <GoogleMap
                 onLoad={handleOnLoad}
-                center={incLatLng.latLng}
+                center={thePlace.Place}
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
-                zoom={100}>
-                {postList.map(({ _id, title, latitude, longitude }) => (
+                zoom={100}
+            >
+                {postList.map(({ _id, title, place }) => (
+                    thePlace.getPlaceLatLng(place),
                     <Marker
                         key={_id}
-                        position={{lat: latitude, lng: longitude}}
+                        position={{lat: thePlace.latLng.lat, lng: thePlace.latLng.lng}}
                         onClick={() => handleActiveMarker(_id)}
                     >
                         {activeMarker === _id ? (
