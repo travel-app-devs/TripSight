@@ -40,20 +40,24 @@ const ProfileInfo = ({ user, owner }) => {
     }
 
     const handleSaveProfile = async (event) => {
-        event.preventDefault()
         try {
-            const vars = (proPic.length && !proBio.length) ? {_id: user._id } : ((!proPic.length && proBio.length) ? {_id: user._id, bio: proBio } : ((proPic.length && !proBio.length) ? {_id: user._id, bio: proBio } : {_id: user._id, bio: proBio, profPicLink: proPic }))
+            const vars = (!proPic.length && !proBio.length) 
+                ? {_id: user._id } 
+                : ((!proPic.length && proBio.length) 
+                ? {_id: user._id, bio: proBio } 
+                : ((proPic.length && !proBio.length) 
+                ? {_id: user._id, profPicLink: proPic } 
+                : {_id: user._id, bio: proBio, profPicLink: proPic }))
+            console.log('variables', vars)
             const { data } = await updateUser({
                 variables: {...vars}
             })
-            
+            window.location.reload()
         } catch (err) {
             console.log(err)
         }
 
     }
-
-    // const profile = {username: 'kt', firstName: 'katie', lastName: 'lastname', bio: 'my name is katie and I like to travel', profilePicLink: 'https://www.dreamstime.com/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-image99680945'}
     return (
         <div className={style.dashContainer}>
             <div className={style.dashHeader}>

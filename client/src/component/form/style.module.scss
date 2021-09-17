@@ -46,11 +46,12 @@
                 border-radius: .2rem;
 
                 &:active {
-                    border: solid .1rem $gray
+                    border: solid .1rem $gray;
                 }
             }
 
             label {
+                font-size: large;
                 margin-left: .4rem;
             }
 

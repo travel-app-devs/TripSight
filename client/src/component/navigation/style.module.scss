@@ -23,7 +23,6 @@
 
     .nav {
         ul {
-
             list-style-type: none;
 
             li {
@@ -34,6 +33,17 @@
                 }
 
                 a {
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: $regular;
+                    letter-spacing: 0.1rem;
+                    text-decoration: none;
+                    padding: 0.7rem 3rem;
+                    background: $yellow;
+                    border-radius: 0.8rem;
+
+                }
+                button {
                     color: $white;
                     text-transform: uppercase;
                     font-weight: $regular;

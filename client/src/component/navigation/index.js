@@ -10,7 +10,7 @@ const Navigation = () => {
   }
   console.log(Auth.loggedIn());
   const logButton = Auth.loggedIn() ? 
-    <li><button onClick={handleLogout}>Logout</button></li> :
+    <li><Link to="/" className={style.logout} onClick={handleLogout}>Logout</Link></li> :
    <li><Link to="/login">Login</Link></li>
   return (
     <div className={style.navContainer}>
@@ -19,6 +19,8 @@ const Navigation = () => {
       </div>
       <nav className={style.nav}>
         <ul>
+          {Auth.loggedIn() ? <li><Link to="/dashboard">dashboard</Link></li> : null}
+          {Auth.loggedIn() ? <li><Link to={`/profile/${Auth.getProfile().data._id}`}>Profile</Link></li> : null}
           {logButton}
         </ul>
       </nav>
