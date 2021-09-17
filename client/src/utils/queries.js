@@ -87,20 +87,9 @@ export const QUERY_ALBUM = gql`
 
 export const QUERY_POST = gql`
   query post($_id: ID!) {
-    posts(_id: $_id) {
-      _id
+    post(_id: $_id) {
       title
-      titleImageLink
-      bodyImage
-      textBody
-      LinkspostVid
-      description
-      pinned
-      tags
-      latitude
-      longitude
-      userId
-      albumId
+
     }
   }
 `;

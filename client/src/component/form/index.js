@@ -82,7 +82,7 @@ export default function Form () {
         try {
             const { data } = await addPost({
                 variables: {
-                    title: 'title', 
+                    title: titleInput, 
                     titleImageLink: titleImageLink, 
                     textBody: postInput, 
                     bodyImageLinks: linksArray, 
