@@ -28,8 +28,10 @@ const SearchResults = () => {
       <div className={style.searchContainer}>
         <h1>Search Results in {thePlace.place}</h1>
         {postList.map(({ _id, title, place }) => (
-          <Link to={`/viewpost/${_id}`}>
-                  <div>{title}</div>
+          <Link to={`/viewpost/${_id}`} key={_id}>
+                  <div>
+                    <h3>{title}</h3>
+                    </div>
                 </Link>
         ))}
       </div>
