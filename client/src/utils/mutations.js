@@ -57,7 +57,8 @@ export const UPDATE_USER = gql`
 `;
 export const UPDATE_USERDEV = gql`
     mutation updateUserDev($username: String!, $email: String!, $password: String!, $firstName: String, $lastName: String, $profPicLink: String, $bio: String) {
-        updateUser(username: $username, email: $email, password: $password, firstName: $firstName) {
+        updateUserDev(username: $username, email: $email, password: $password, firstName: $firstName) {
+          username
         }
     }
 `;
@@ -65,12 +66,14 @@ export const UPDATE_USERDEV = gql`
 export const UPDATE_ALBUM = gql`
     mutation updateAlbum($title: String!, $imageLink: String!, $description: String!, $userId: String, $pinned: Boolean) {
         updateAlbum(title: $title, imageLink: $imageLink, description: $description, userId: $userId, pinned: $pinned) {
+          title
         }
     }
 `;
 export const UPDATE_ALBUMDEV = gql`
     mutation updateAlbumDev($title: String!, $imageLink: String!, $description: String!, $userId: String, $pinned: Boolean) {
         updateAlbumDev(title: $title, imageLink: $imageLink, description: $description, userId: $userId, pinned: $pinned) {
+          title
         }
     }
 `;
@@ -78,12 +81,14 @@ export const UPDATE_ALBUMDEV = gql`
 export const UPDATE_POST = gql`
     mutation updatePost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $latitude: Int!, $longitude: Int!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
         updatePost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
+          title
         }
     }
 `;
 export const UPDATE_POSTDEV = gql`
     mutation updatePostDev($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $latitude: Int!, $longitude: Int!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
         updatePostDev(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, latitude: $latitude, longitude: $longitude, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
+          title
         }
     }
 `;
