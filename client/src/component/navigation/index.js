@@ -8,7 +8,10 @@ const Navigation = () => {
     event.preventDefault()
     Auth.logout()
   }
-  const logButton = Auth.loggedIn ? <li><button onClick={handleLogout}>Logout</button></li> : <li><Link to="/login">Login</Link></li>
+  console.log(Auth.loggedIn());
+  const logButton = Auth.loggedIn() ? 
+    <li><button onClick={handleLogout}>Logout</button></li> :
+   <li><Link to="/login">Login</Link></li>
   return (
     <div className={style.navContainer}>
       <div className={style.navLogoContainer}>
@@ -16,7 +19,7 @@ const Navigation = () => {
       </div>
       <nav className={style.nav}>
         <ul>
-          <li><Link to="/login">Login</Link></li>
+          {logButton}
         </ul>
       </nav>
     </div>

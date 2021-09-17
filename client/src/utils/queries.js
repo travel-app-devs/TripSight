@@ -88,8 +88,18 @@ export const QUERY_ALBUM = gql`
 export const QUERY_POST = gql`
   query post($_id: ID!) {
     post(_id: $_id) {
+      _id
       title
+      titleImageLink
+      bodyImage
+      textBody
+      description
+      pinned
+      tags
+      latitude
+      longitude
 
+      title
     }
   }
 `;
@@ -178,3 +188,29 @@ export const QUERY_ALLPOSTS = gql`
     }
   }
 `;
+
+export const QUERY_ALLPOST = gql`
+  query posts {
+    posts {
+      title
+      latitude
+      longitude
+      _id
+      tags
+    }
+  }
+`;
+
+export const QUERY_POSTTWO = gql`
+  query post($_id: ID!) {
+    post(_id: $_id) {
+      title
+
+    }
+  }
+`;
+
+
+
+
+
