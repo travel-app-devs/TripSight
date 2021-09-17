@@ -1,6 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
-// const path = require('path');
+const path = require('path');
 const db = require('./config/connection')
 const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express');
