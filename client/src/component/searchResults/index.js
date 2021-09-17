@@ -1,14 +1,22 @@
 import style from "./style.module.css";
+import React, {useContext} from 'react';
 import { useQuery } from "@apollo/client";
-import { QUERY_ALLPOSTS } from "../../utils/queries";
+import LatLngContext from "../../context/LatLngContext";
 import SearchField from "../searchField";
 import Map from '../map'
 
 
 const SearchResults = () => {
-  // const { data } = useQuery(QUERY_ALLPOSTS);
-  // const postList = data?.allPosts || [];
-  // console.log(postList);
+  const theLatLng = useContext(LatLngContext);
+  console.log(theLatLng.latLng)
+  const { data } = useQuery(theLatLng.QUERY_PLACEPOSTS, {
+    variables: {
+      latitude: theLatLng.latLng.lat,
+      longitude: theLatLng.latLng.lng
+    }
+  });
+  const postList = data?.placePosts || [];
+  console.log(postList);
   return (
     <div className={style.searchResultsContainer}>
       <div className={style.searchFieldContainer}>

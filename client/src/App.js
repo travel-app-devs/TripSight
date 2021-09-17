@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,6 +19,8 @@ import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
 import LatLngContext from './context/LatLngContext';
+import AllPostsContext from './context/AllPostsContext';
+import { QUERY_PLACEPOSTS } from './utils/queries';
 
 
 // Construct our main GraphQL API endpoint
@@ -49,8 +51,8 @@ const client = new ApolloClient({
 });
 function App() {
   const [latLng, setLatLng] = useState({
-    lat: 7.6545,
-    lng: -20.4235
+    lat: 0.0000,
+    lng: 0.0000
   })
   const getPlaceLatLng = (address) => {
     let latitude, longitude, placeId;
@@ -85,15 +87,15 @@ function App() {
   }, []);
   return (
     <ApolloProvider client={client}>
-      <LatLngContext.Provider value={latLng}>
-      <Router>
-        <div className="App">
-          <Link to='/'></Link>
+      <LatLngContext.Provider value={{latLng: latLng, getPlaceLatLng: getPlaceLatLng, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
+          <Router>
+            <div className="App">
+              <Link to='/'></Link>
 
         <Switch>
           <Route exact path='/'>
             {/* <Header /> */}
-            <Home getPlaceLatLng={getPlaceLatLng} />
+            <Home />
             {/* <Footer /> */}
           </Route>
           <Route exact path="/login">
@@ -127,12 +129,12 @@ function App() {
           {/* <Route exact path="/posts/:postId">
             <SinglePost />
           </Route> */}
-        </Switch>
-        </div>
-      </Router>
+              </Switch>
+            </div>
+          </Router>
       </LatLngContext.Provider>
-    </ApolloProvider>
-    
+      </ApolloProvider>
+
 
   );
 }
