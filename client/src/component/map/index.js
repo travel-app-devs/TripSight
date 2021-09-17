@@ -34,6 +34,7 @@ function Map() {
                 center={thePlace.latLng}
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
+                zoom={17}
             >
                 {postList.map(({ _id, title, place, lat, lng }) => {
                     if (!lat || !lng) {
