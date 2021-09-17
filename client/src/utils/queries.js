@@ -98,6 +98,8 @@ export const QUERY_POST = gql`
       tags
       latitude
       longitude
+
+      title
     }
   }
 `;

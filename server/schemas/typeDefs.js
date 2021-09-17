@@ -100,9 +100,8 @@ const typeDefs = gql`
     ): Auth
     updateUserDev(
         _id: ID!
-        username: String 
+        username: String
         email: String
-        password: String
         firstName: String
         lastName: String
         profPicLink: String

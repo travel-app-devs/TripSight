@@ -56,10 +56,12 @@ export const UPDATE_USER = gql`
     }
 `;
 export const UPDATE_USERDEV = gql`
-    mutation updateUserDev($username: String!, $email: String!, $password: String!, $firstName: String, $lastName: String, $profPicLink: String, $bio: String) {
-        updateUserDev(username: $username, email: $email, password: $password, firstName: $firstName) {
-          username
+    mutation updateUserDev($_id: ID!, $profPicLink: String, $bio: String) {
+        updateUserDev(_id: $_id, profPicLink: $profPicLink, bio: $bio) {
+        user {
+          bio
         }
+      }
     }
 `;
 
