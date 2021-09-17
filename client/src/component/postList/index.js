@@ -21,7 +21,7 @@ const PostList = ({ type, userPosts }) => {
         )}) : userPosts.map(post => {
             return(
                 <div className={style.postDiv} key={post._id}>
-                    <Link to={`/posts/${post._id}`}><h3 className={style.postTitle}>{post.title}</h3></Link>
+                    <h3 className={style.postTitle}><Link className={style.postTitle} to={`/viewPost/${post._id}`}>{post.title}</Link></h3>
                 </div>
             )}) 
     return (

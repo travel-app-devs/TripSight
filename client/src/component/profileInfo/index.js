@@ -42,14 +42,9 @@ const ProfileInfo = ({ user, owner }) => {
     const handleSaveProfile = async (event) => {
         event.preventDefault()
         try {
+            const vars = (proPic.length && !proBio.length) ? {_id: user._id } : ((!proPic.length && proBio.length) ? {_id: user._id, bio: proBio } : ((proPic.length && !proBio.length) ? {_id: user._id, bio: proBio } : {_id: user._id, bio: proBio, profPicLink: proPic }))
             const { data } = await updateUser({
-                variables: {
-                    _id: user._id,
-                    // username: user.username,
-                    // email: user.email,
-                    profPicLink: proPic, 
-                    bio: proBio, 
-                }
+                variables: {...vars}
             })
             
         } catch (err) {
@@ -63,17 +58,19 @@ const ProfileInfo = ({ user, owner }) => {
         <div className={style.dashContainer}>
             <div className={style.dashHeader}>
                 <h1 className={style.welcome}>{owner.username}'s Profile</h1>
-                <div>
+                <div >
                     { owner._id === user._id ? <Link to="/newpost" ><button className={style.button}>Create New Post</button></Link> : null }
                 </div>
                 <div>
                     { owner._id === user._id ? <button className={style.button2} onClick={handleSaveProfile} >Save Profile</button> : null }
                 </div>
-                <div>
-                    { owner._id === user._id ? <><img src={owner.profPicLink} /><input onChange={handleChangeProPic} name='profilePic' placeholder='update profile link'/></>: <img src={owner.profPicLink} /> }
-                    { owner._id === user._id ? (owner.bio ? 
-                        <><label htmlFor='ownerBio'>Bio</label><textarea onChange={handleChangeProBio} name='profileBio' id='ownerBio' value={owner.bio}/></> 
-                        : <><label htmlFor='ownerBio'>Bio</label><textarea onChange={handleChangeProBio} name='profileBio' id='ownerBio' placeholder='Enter bio'></textarea></>) 
+                <div className={style.profileInfo}>
+                    { owner._id === user._id ? <><img className={style.profileImage} src={owner.profPicLink} /><input onChange={handleChangeProPic} name='profilePic' placeholder='update profile link'/></>: <img src={owner.profPicLink} /> }
+                    { owner._id === user._id ? (owner.bio.length ? 
+                        <><label htmlFor='ownerBio'>Bio</label>
+                        <textarea onChange={handleChangeProBio} name='profileBio' id='ownerBio' value={owner.bio}/></> 
+                        : <><label htmlFor='ownerBio'>Bio</label>
+                        <textarea onChange={handleChangeProBio} name='profileBio' id='ownerBio' placeholder='Enter bio'></textarea></>) 
                         : <p>{owner.bio}</p> }
                 </div>
                 <div className={style.lists}>
