@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { Link } from "react-router-dom";
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 // import { apiKey } from '../../../../server/utils/apiKey'
 import { useQuery } from '@apollo/client';
@@ -11,7 +12,7 @@ import LatLngContext from '../../context/LatLngContext';
 function Map() {
     const containerStyle = {
         // We can change this, just a stand-in
-        width: '600px',
+        width: '800px',
         height: '400px'
     };
     console.log(QUERY_ALLPOSTS)
@@ -40,8 +41,9 @@ function Map() {
                 center={incLatLng.latLng}
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
+                zoom={100}
             >
-                {postList.map(({ _id, title, latitude, longitude, _id }) => (
+                {postList.map(({ _id, title, latitude, longitude }) => (
                     <Marker
                         key={_id}
                         position={{lat: latitude, lng: longitude}}
@@ -49,7 +51,9 @@ function Map() {
                     >
                         {activeMarker === _id ? (
                             <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                                <Link to={`/viewpost/${_id}`}>
                                 <div>{title}</div>
+                                </Link>
                             </InfoWindow>
                         ) : null}
                     </Marker>
