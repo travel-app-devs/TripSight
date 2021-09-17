@@ -1,27 +1,10 @@
 [
     {
         "title": "test post tokyo",
-        "textBody": "this is a test post that should be located in Tokyo, Japan",
-        "latitude": 35.6897,
-        "longitude": 139.6922,
-        "userId": "613ad3aacc6fa772df53ce9e",
-        "pinned": false,
-        "tags": "food,drinks"
-    },
-    {
-        "title": "test post tokyo 2",
-        "textBody": "this is a test post that should be located in Tokyo, Japan",
-        "latitude": 35.6897,
-        "longitude": 139.6922,
-        "userId": "613ad3aacc6fa772df53ce9e",
-        "pinned": false,
-        "tags": "food,drinks"
-    },
-    {
-        "title": "test post tokyo 3",
-        "textBody": "this is a test post that should be located in Tokyo, Japan",
-        "latitude": 35.6897,
-        "longitude": 139.6922,
+        "textBody": "this is a test post that should be located in Tokyo",
+        "place": "Tokyo",
+        "lat": "35.652832",
+        "lng": "139.839478",
         "userId": "613ad3aacc6fa772df53ce9e",
         "pinned": false,
         "tags": "food,drinks"
@@ -29,8 +12,9 @@
     {
         "title": "test post new york",
         "textBody": "this is a test post that should be located in new york",
-        "latitude": 40.6943,
-        "longitude": -73.9249,
+        "place": "New York",
+        "lat": "43.0000",
+        "lng": "-75.0000",
         "userId": "613ad3aacc6fa772df53ce9f",
         "pinned": false,
         "tags": "food,drinks"
@@ -38,18 +22,10 @@
     {
         "title": "test post mexico city",
         "textBody": "this is a test post that should be located in mexico city",
-        "latitude": 19.4333,
-        "longitude": -99.1333,
+        "place": "Mexico City",
+        "lat": "19.432608",
+        "lng": "-99.133209",
         "userId": "613ad3aacc6fa772df53cea0",
-        "pinned": false,
-        "tags": "food,drinks"
-    },
-    {
-        "title": "test post mumbai",
-        "textBody": "this is a test post that should be located in mumbai",
-        "latitude": 18.9667,
-        "longitude": 72.8333,
-        "userId": "613ad3aacc6fa772df53cea1",
         "pinned": false,
         "tags": "food,drinks"
     }

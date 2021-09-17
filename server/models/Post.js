@@ -1,3 +1,4 @@
+const { isNumber } = require("lodash");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -24,13 +25,15 @@ const PostSchema = new Schema({
         type: String,
         required: false
     },
-    latitude: {
-        type: Number,
+    place: {
+        type: String,
         required: true,
     },
-    longitude: {
-        type: Number,
-        required: true,
+    lat: {
+        type: Number
+    },
+    lng: {
+        type: Number
     },
     userId: {
         type: Schema.Types.ObjectId,

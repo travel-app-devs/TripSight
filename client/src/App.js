@@ -18,8 +18,7 @@ import Navigation from './component/navigation'
 import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
-import LatLngContext from './context/LatLngContext';
-import AllPostsContext from './context/AllPostsContext';
+import PlaceContext from './context/PlaceContext';
 import { QUERY_PLACEPOSTS } from './utils/queries';
 
 
@@ -76,10 +75,11 @@ function App() {
       }
     );
   };
+  const  [place, setPlace] = useState('');
   useEffect(() => {
     if(!document.querySelector("#here")) {
     const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
     googleMapScript.async = true;
     googleMapScript.id = "here";
     window.document.body.appendChild(googleMapScript);
@@ -87,7 +87,7 @@ function App() {
   }, []);
   return (
     <ApolloProvider client={client}>
-      <LatLngContext.Provider value={{latLng: latLng, getPlaceLatLng: getPlaceLatLng, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
+      <PlaceContext.Provider value={{place: place, latLng: latLng, setLatLng: setLatLng, getPlaceLatLng: getPlaceLatLng, setPlace: setPlace, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
           <Router>
             <div className="App">
               <Link to='/'></Link>
@@ -133,7 +133,7 @@ function App() {
         </Switch>
             </div>
           </Router>
-      </LatLngContext.Provider>
+      </PlaceContext.Provider>
       </ApolloProvider>
 
 

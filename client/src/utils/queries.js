@@ -35,7 +35,6 @@ export const QUERY_THISUSERPOSTS = gql`
   query thisUserPosts($userId: ID!) {
     thisUserPosts(userId: $userId) {
       _id
-
     }
   }
 `;
@@ -49,12 +48,14 @@ export const QUERY_THISUSERALBUMS = gql`
         _id
         title
         titleImageLink
-        bodyImageLinkspostVid
+        bodyImageLinks
+        postVid
         description
         pinned
         tags
-        latitude
-        longitude
+        place
+        lat
+        lng
         userId
         albumId
       }
@@ -74,12 +75,14 @@ export const QUERY_ALBUM = gql`
         _id
         title
         titleImageLink
-        bodyImageLinkspostVid
+        bodyImageLinks
+        postVid
         description
         pinned
         tags
-        latitude
-        longitude
+        place
+        lat
+        lng
         userId
         albumId
       }
@@ -100,9 +103,9 @@ export const QUERY_POST = gql`
       description
       pinned
       tags
-      latitude
-      longitude
-
+      place
+      lat
+      lng
       title
     }
   }
@@ -119,8 +122,9 @@ export const QUERY_USERPOSTS = gql`
       postVid
       description
       pinned
-      latitude
-      longitude
+      place
+      lat
+      lng
       userId {
         _id
       }
@@ -134,12 +138,14 @@ export const QUERY_ALBUMPOSTS = gql`
       _id
       title
       titleImageLink
-      bodyImageLinkspostVid
+      bodyImageLinks
+      postVid
       description
       pinned
       tags
-      latitude
-      longitude
+      place
+      lat
+      lng  
       userId
       albumId
     }
@@ -156,12 +162,14 @@ export const QUERY_USERALBUMS = gql`
         _id
         title
         titleImageLink
-        bodyImageLinkspostVid
+        bodyImageLinks
+        postVid
         description
         pinned
         tags
-        latitude
-        longitude
+        place
+        lat
+        lng    
         userId
         albumId
       }
@@ -173,11 +181,11 @@ export const QUERY_USERALBUMS = gql`
 
 
 export const QUERY_PLACEPOSTS = gql`
-  query placePosts($latitude: Float!, $longitude: Float!) {
-    placePosts(latitude: $latitude, longitude: $longitude) {
+  query placePosts($place: String!) {
+    placePosts(place: $place) {
       title
-      latitude
-      longitude
+      place
+      
       _id
       tags
     }
@@ -189,8 +197,9 @@ export const QUERY_ALLPOSTS = gql`
     allPosts {
       _id
       title
-      latitude
-      longitude
+      place
+      lat
+      lng
       tags
     }
   }
@@ -200,8 +209,9 @@ export const QUERY_ALLPOST = gql`
   query posts {
     posts {
       title
-      latitude
-      longitude
+      place
+      lat
+      lng
       _id
       tags
     }

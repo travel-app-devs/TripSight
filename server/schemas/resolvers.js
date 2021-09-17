@@ -55,8 +55,8 @@ const resolvers = {
       const params = _id ? { userId: userId } : {};
       return Album.find(params);
     },
-    placePosts: async (parent, { latitude, longitude }) => {
-      const params = { latitude, longitude } ? { latitude: latitude, longitude: longitude } : {};
+    placePosts: async (parent, { place }) => {
+      const params =  place ? { place: place  } : {};
       return Post.find(params);
     },
   },
