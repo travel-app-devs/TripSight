@@ -27,7 +27,7 @@ function Map() {
     };
 
     const handleOnLoad = (map) => {
-        const bounds = new window.google.maps.LatLngBounds(incLatLng);
+        const bounds = new window.google.maps.LatLngBounds(incLatLng.latLng);
         postList.forEach(({ position }) => bounds.extend(position));
         map.fitBounds(bounds);
     };
@@ -37,6 +37,7 @@ function Map() {
     return (
             <GoogleMap
                 onLoad={handleOnLoad}
+                center={incLatLng.latLng}
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
             >
