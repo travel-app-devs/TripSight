@@ -114,7 +114,7 @@ function App() {
             <Navigation />
             <NewPost />
           </Route>
-          <Route exact path="/viewpost/:userId">
+          <Route exact path="/viewpost/:postId">
             <Viewpost />
           </Route>
           {/* <Route exact path="/me">
