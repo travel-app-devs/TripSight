@@ -70,7 +70,7 @@ const ProfileInfo = ({ user, owner }) => {
                 </div>
                 <div className={style.profileInfo}>
                     { owner._id === user._id ? <><img className={style.profileImage} src={owner.profPicLink} /><input onChange={handleChangeProPic} name='profilePic' placeholder='update profile link'/></>: <img src={owner.profPicLink} /> }
-                    { owner._id === user._id ? (owner.bio.length ? 
+                    { owner._id === user._id ? (owner.bio ? 
                         <><label htmlFor='ownerBio'>Bio</label>
                         <textarea onChange={handleChangeProBio} name='profileBio' id='ownerBio' value={owner.bio}/></> 
                         : <><label htmlFor='ownerBio'>Bio</label>
