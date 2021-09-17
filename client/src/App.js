@@ -126,10 +126,7 @@ function App() {
             <Navigation />
             <Profile />
           </Route>
-          {/* <Route exact path="/posts/:postId">
-            <SinglePost />
-          </Route> */}
-              </Switch>
+        </Switch>
             </div>
           </Router>
       </LatLngContext.Provider>
