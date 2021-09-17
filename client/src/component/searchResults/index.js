@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import PlaceContext from "../../context/PlaceContext";
 import SearchField from "../searchField";
 import Map from '../map'
+import { Link } from "react-router-dom";
+
 
 
 const SearchResults = () => {

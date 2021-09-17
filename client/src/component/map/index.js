@@ -31,11 +31,9 @@ function Map() {
     console.log(postList);
     return (
             <GoogleMap
-                onLoad={handleOnLoad}
-                center={thePlace.Place}
+                center={thePlace.latLng}
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
-                zoom={100}
             >
                 {postList.map(({ _id, title, place }) => (
                     thePlace.getPlaceLatLng(place),
