@@ -98,4 +98,52 @@
   text-align: center;
   width: 25%;
 }
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+}
+
+.profileInfo img {
+  display: inline;
+  margin-right: -5rem;
+
+}
+.profileInfo label {
+  display: block;
+  text-align: left;
+  margin-right: -5rem;
+
+}
+.profileInfo input {
+  margin: .5rem;
+  margin-top: .9rem;
+  margin-bottom: 1rem;
+  display: block;
+  width: 80%;
+  margin-right: -5rem;
+
+}
+.profileInfo textarea {
+  margin: .5rem;
+  display: block;
+  width: 100%;
+  height: 4rem;
+  margin-right: -5rem;
+
+}
+
+.profileInfo p {
+  margin: .5rem;
+  display: block;
+  width: 100%;
+  height: 4rem;
+  margin-right: -5rem;
+
+}
 /*# sourceMappingURL=style.module.css.map */
