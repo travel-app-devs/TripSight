@@ -24,12 +24,8 @@ const PostSchema = new Schema({
         type: String,
         required: false
     },
-    latitude: {
-        type: Number,
-        required: true,
-    },
-    longitude: {
-        type: Number,
+    place: {
+        type: String,
         required: true,
     },
     userId: {

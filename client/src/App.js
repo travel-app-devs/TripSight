@@ -50,32 +50,33 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 function App() {
-  const [latLng, setLatLng] = useState({
-    lat: 0.0000,
-    lng: 0.0000
-  })
-  const getPlaceLatLng = (address) => {
-    let latitude, longitude, placeId;
-    new window.google.maps.Geocoder().geocode(
-      { address: `${address}` },
-      function (results, status) {
-        if (status === window.google.maps.GeocoderStatus.OK) {
-          placeId = results[0].place_id;
-          latitude = results[0].geometry.location.lat();
-          longitude = results[0].geometry.location.lng();
-          setLatLng({
-            lat: latitude,
-            lng: longitude
-          })
-          return console.log("coordinates: ", latLng.lat, latLng.lng)
-        } else {
-          alert(
-            "Geocode was not successful for the following reason: " + status
-          );
-        }
-      }
-    );
-  };
+  // const [latLng, setLatLng] = useState({
+  //   lat: 0.0000,
+  //   lng: 0.0000
+  // })
+  // const getPlaceLatLng = (address) => {
+  //   let latitude, longitude, placeId;
+  //   new window.google.maps.Geocoder().geocode(
+  //     { address: `${address}` },
+  //     function (results, status) {
+  //       if (status === window.google.maps.GeocoderStatus.OK) {
+  //         placeId = results[0].place_id;
+  //         latitude = results[0].geometry.location.lat();
+  //         longitude = results[0].geometry.location.lng();
+  //         setLatLng({
+  //           lat: latitude,
+  //           lng: longitude
+  //         })
+  //         return console.log("coordinates: ", latLng.lat, latLng.lng)
+  //       } else {
+  //         alert(
+  //           "Geocode was not successful for the following reason: " + status
+  //         );
+  //       }
+  //     }
+  //   );
+  // };
+  const  [place, setPlace] = useState('');
   useEffect(() => {
     if (!document.querySelector("#here")) {
       const googleMapScript = document.createElement("script");
@@ -87,7 +88,7 @@ function App() {
   }, []);
   return (
     <ApolloProvider client={client}>
-      <LatLngContext.Provider value={{latLng: latLng, getPlaceLatLng: getPlaceLatLng, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
+      <LatLngContext.Provider value={{place: place, setPlace: setPlace, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
           <Router>
             <div className="App">
               <Link to='/'></Link>

@@ -33,8 +33,7 @@ const typeDefs = gql`
     description: String
     pinned: Boolean
     tags: String
-    latitude: Float!
-    longitude: Float!
+    place: String!
     userId: User
     albumId: Album
   }
@@ -57,7 +56,7 @@ const typeDefs = gql`
     userPosts(userId: ID!): [Post]
     userAlbums(userId: ID!): [Album]
     albumPosts(albumId: ID): [Post]
-    placePosts(latitude: Float!, longitude: Float!): [Post]
+    placePosts(place: String!): [Post]
   }
 
   type Mutation {
@@ -80,8 +79,7 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Float!
-        longitude: Float!
+        place: String!
         description: String
         userId: ID
         pinned: Boolean
@@ -130,8 +128,7 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Float
-        longitude: Float
+        place: String
         description: String
         userId: String!
         pinned: Boolean
@@ -145,8 +142,7 @@ const typeDefs = gql`
         textBody: String
         bodyImageLinks: [String]
         postVid: String
-        latitude: Float
-        longitude: Float
+        place: String
         description: String
         userId: String
         pinned: Boolean
