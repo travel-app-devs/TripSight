@@ -8,13 +8,14 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
-import Home from './pages/home';
+import Home from './pages/home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import SearchResults from './pages/searchResults';
+import SearchResults from './pages/searchResults'
 import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
+import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
 import LatLngContext from './context/LatLngContext';
@@ -91,38 +92,41 @@ function App() {
             <div className="App">
               <Link to='/'></Link>
 
-              <Switch>
-                <Route exact path='/'>
-                  {/* <Header /> */}
-                  <Home />
-                  {/* <Footer /> */}
-                </Route>
-                <Route exact path="/login">
-                  {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
-                  <Login />
-                </Route>
-                <Route exact path="/signup">
-                  <Signup />
-                </Route>
-                <Route exact path="/results">
-                  <SearchResults />
-                </Route>
-                <Route exact path="/dashboard">
-                  <Navigation />
-                  <Dashboard />
-                </Route>
-                <Route exact path="/newpost">
-                  <Navigation />
-                  <NewPost />
-                </Route>
-                <Route exact path="/me">
-                  <Profile />
-                </Route>
-                <Route exact path="/profile/:userId">
-                  <Navigation />
-                  <Profile />
-                </Route>
-                {/* <Route exact path="/posts/:postId">
+        <Switch>
+          <Route exact path='/'>
+            {/* <Header /> */}
+            <Home />
+            {/* <Footer /> */}
+          </Route>
+          <Route exact path="/login">
+            {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/results">
+            <SearchResults />
+          </Route>
+          <Route exact path="/dashboard">
+            <Navigation />
+            <Dashboard />
+          </Route>
+          <Route exact path="/newpost">
+            <Navigation />
+            <NewPost />
+          </Route>
+          <Route exact path="/viewpost/:postId">
+            <Viewpost />
+          </Route>
+          {/* <Route exact path="/me">
+            <Profile />
+          </Route>
+          <Route exact path="/profile/:userId">
+            <Navigation />
+            <Profile />
+          </Route>
+          {/* <Route exact path="/posts/:postId">
             <SinglePost />
           </Route> */}
               </Switch>

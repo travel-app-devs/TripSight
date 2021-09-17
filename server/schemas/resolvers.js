@@ -65,13 +65,13 @@ const resolvers = {
       const user = await User.findOne({ email })
 
       if (!user) {
-        throw new AuthenticationError('No User Found')
+        throw new AuthenticationError('Incorrect Email or Password')
       }
 
       const correctPw = await user.isCorrectPassword(password)
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect Password')
+        throw new AuthenticationError('Incorrect Email or Password')
       }
 
       const token = signToken(user);
@@ -103,6 +103,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    
     updateUserDev: async (parent, args) => {
       const updated = await User.findOneAndUpdate(
         {_id: args._id},
@@ -110,6 +111,7 @@ const resolvers = {
       );
       return updated;
     },
+
     updatePost: async (parent, args, context) => {
       if (context.user) {
         const find = await Post.findById(args._id);
