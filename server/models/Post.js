@@ -1,3 +1,4 @@
+const { isNumber } = require("lodash");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -27,6 +28,12 @@ const PostSchema = new Schema({
     place: {
         type: String,
         required: true,
+    },
+    lat: {
+        type: Number
+    },
+    lng: {
+        type: Number
     },
     userId: {
         type: Schema.Types.ObjectId,

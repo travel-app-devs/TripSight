@@ -54,6 +54,8 @@ export const QUERY_THISUSERALBUMS = gql`
         pinned
         tags
         place
+        lat
+        lng
         userId
         albumId
       }
@@ -79,6 +81,8 @@ export const QUERY_ALBUM = gql`
         pinned
         tags
         place
+        lat
+        lng
         userId
         albumId
       }
@@ -100,6 +104,8 @@ export const QUERY_POST = gql`
       pinned
       tags
       place
+      lat
+      lng
       title
     }
   }
@@ -117,6 +123,8 @@ export const QUERY_USERPOSTS = gql`
       description
       pinned
       place
+      lat
+      lng
       userId {
         _id
       }
@@ -135,7 +143,9 @@ export const QUERY_ALBUMPOSTS = gql`
       description
       pinned
       tags
-      place  
+      place
+      lat
+      lng  
       userId
       albumId
     }
@@ -157,7 +167,9 @@ export const QUERY_USERALBUMS = gql`
         description
         pinned
         tags
-        place    
+        place
+        lat
+        lng    
         userId
         albumId
       }
@@ -186,7 +198,8 @@ export const QUERY_ALLPOSTS = gql`
       _id
       title
       place
-      
+      lat
+      lng
       tags
     }
   }
@@ -197,7 +210,8 @@ export const QUERY_ALLPOST = gql`
     posts {
       title
       place
-      
+      lat
+      lng
       _id
       tags
     }

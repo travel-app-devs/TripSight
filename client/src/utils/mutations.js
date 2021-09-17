@@ -37,8 +37,8 @@ export const ADD_ALBUM = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $description: String, $userId: ID, $pinned: Boolean, $tags: String, $albumId: ID) {
-    addPost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, description: $description, userId: $userId, pinned: $pinned, tags: $tags, albumId: $albumId) {
+  mutation addPost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $lat: Float, $lng: Float, $description: String, $userId: ID, $pinned: Boolean, $tags: String, $albumId: ID) {
+    addPost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, lat: $lat, lng: $lng, description: $description, userId: $userId, pinned: $pinned, tags: $tags, albumId: $albumId) {
       title
   }
 }
@@ -81,15 +81,15 @@ export const UPDATE_ALBUMDEV = gql`
 `;
 
 export const UPDATE_POST = gql`
-    mutation updatePost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
-        updatePost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
+    mutation updatePost($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $lat: Float, $lng: Float, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
+        updatePost(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, lat: $lat, lng: $lng, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
           title
         }
     }
 `;
 export const UPDATE_POSTDEV = gql`
-    mutation updatePostDev($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
-        updatePostDev(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
+    mutation updatePostDev($title: String!, $titleImageLink: String, $textBody: String, $bodyImageLinks: [String], $postVid: String, $place: String!, $lat: Float, $lng: Float, $description: String, $userId: String!, $pinned: Boolean, $tags: String) {
+        updatePostDev(title: $title, titleImageLink: $titleImageLink, textBody: $textBody, bodyImageLinks: $bodyImageLinks, postVid: $postVid, place: $place, lat: $lat, lng: $lng, description: $description, userId: $userId, pinned: $pinned, tags: $tags) {
           title
         }
     }
