@@ -1,2 +1,2 @@
 ## travelDiary
-an one-stop decentralized travel blog
+an one-stop decentralized travel blog!
