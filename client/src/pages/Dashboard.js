@@ -4,17 +4,19 @@ import { useQuery } from '@apollo/client';
 
 import DashInfo from '../component/dashInfo'
 
-import { QUERY_USERPOSTS } from '../utils/queries';
+import { QUERY_USERPOSTS, QUERY_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const Dashboard = () => {
   const userProfile = Auth.getProfile().data
   console.log('userprofile', userProfile)
-  const { loading, data } = useQuery(QUERY_USERPOSTS, { variables: {userId: userProfile._id }});
-  console.log('query data', data)
+  const { loading: userPostsLoading, data: userPosts } = useQuery(QUERY_USERPOSTS, { variables: {userId: userProfile._id }});
+  const { loading: userLoading , data: user } = useQuery(QUERY_USER, { variables: {_id: userProfile._id}});
 
-  if (loading) {
+  console.log('query data', user, userPosts)
+
+  if (userPostsLoading || userLoading) {
     return <div>Loading....</div>;
   }
   if (!userProfile?.username) {
@@ -28,7 +30,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <DashInfo user={userProfile} userPosts={data.userPosts}/>
+      <DashInfo user={user.user} userPosts={userPosts.userPosts}/>
 
       </div>
   );
