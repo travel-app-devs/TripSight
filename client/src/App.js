@@ -99,13 +99,16 @@ function App() {
             {/* <Footer /> */}
           </Route>
           <Route exact path="/login">
+            <Navigation />
             {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
             <Login />
           </Route>
           <Route exact path="/signup">
+            <Navigation />
             <Signup />
           </Route>
           <Route exact path="/results">
+            <Navigation />
             <SearchResults />
           </Route>
           <Route exact path="/dashboard">
@@ -117,6 +120,7 @@ function App() {
             <NewPost />
           </Route>
           <Route exact path="/viewpost/:postId">
+            <Navigation />
             <Viewpost />
           </Route>
           <Route exact path="/me">
