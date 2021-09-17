@@ -43,8 +43,8 @@ const resolvers = {
       const params = _id ? { _id: _id } : {};
       return Album.findOne(params);
     },
-    userPosts: async (parent, { _id }) => {
-      const params = _id ? { userId: _id } : {};
+    userPosts: async (parent, { userId }) => {
+      const params = { userId: userId };
       return Post.find(params);
     },
     albumPosts: async (parent, { albumId }) => {

@@ -10,6 +10,10 @@ export const QUERY_USER = gql`
       lastName
       profPicLink
       bio
+      favorites {
+        _id
+        title
+      }
     }
   }
 `;
@@ -117,6 +121,9 @@ export const QUERY_USERPOSTS = gql`
       pinned
       latitude
       longitude
+      userId {
+        _id
+      }
     }
   }
 `;
