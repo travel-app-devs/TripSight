@@ -117,7 +117,7 @@ function App() {
           <Route exact path="/viewpost/:postId">
             <Viewpost />
           </Route>
-          {/* <Route exact path="/me">
+          <Route exact path="/me">
             <Profile />
           </Route>
           <Route exact path="/profile/:userId">
