@@ -35,11 +35,16 @@ function Map() {
                 onClick={() => setActiveMarker(null)}
                 mapContainerStyle={containerStyle}
             >
-                {postList.map(({ _id, title, place }) => (
-                    thePlace.getPlaceLatLng(place),
+                {postList.map(({ _id, title, place, lat, lng }) => {
+                    if (!lat || !lng) {
+                        thePlace.getPlaceLatLng(place);
+                        lat = thePlace.latLng.lat;
+                        lng = thePlace.latLng.lat;
+                    }
+                    return (
                     <Marker
                         key={_id}
-                        position={{lat: thePlace.latLng.lat, lng: thePlace.latLng.lng}}
+                        position={{lat: lat, lng: lng}}
                         onClick={() => handleActiveMarker(_id)}
                     >
                         {activeMarker === _id ? (
@@ -50,7 +55,8 @@ function Map() {
                             </InfoWindow>
                         ) : null}
                     </Marker>
-                ))}
+                    )
+                })}
             </GoogleMap>
     )
 }
