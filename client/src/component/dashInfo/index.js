@@ -2,7 +2,6 @@ import style from './style.module.css'
 import { Link } from 'react-router-dom'
 import PostList from '../../component/postList'
 const DashInfo = ({ user, userPosts }) => {
-    console.log()
     return (
         <div className={style.dashContainer}>
             <div className={style.dashHeader}>

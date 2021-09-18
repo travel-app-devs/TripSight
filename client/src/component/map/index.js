@@ -15,11 +15,10 @@ function Map() {
         width: '800px',
         height: '400px'
     };
-    console.log(QUERY_ALLPOSTS)
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();
     const thePlace = useContext(PlaceContext);
-    console.log("This Must Be The Place: ", thePlace)
+    console.log("This Must Be The Place: ", thePlace.place)
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
             return;
