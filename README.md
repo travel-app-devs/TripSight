@@ -3,9 +3,13 @@
 
  
  ## Description 
- This is a MERN application hosted on heroku that allows the user to create an account, post blogs and search other users blogs. It is a one stop shop for all things travel content, pictures for planning future travel or just getting your fix of far off places!  
+ This is a MERN application hosted on heroku that allows the user to create an account, post blogs and search other users blogs. It is a one stop shop for all things travel content, pictures for planning future travel or just getting your fix of far off places!
+ [link to deployed application](https://gentle-forest-57740.herokuapp.com/dashboard)
 
- 
+ ![preview image](client/public/previewImage1.png)
+ ![preview image 2](client/public/previewImage2.png)
+ ![preview image 3](client/public/previewImage3.png)
+
  ## Table of Contents 
 
  * [Installation](#installation) 
@@ -26,7 +30,7 @@ None
 
  
  ## Usage 
- Follow deployed link
+ Follow deployed [link](https://gentle-forest-57740.herokuapp.com/dashboard)
 
  
  ## License 
