@@ -174,10 +174,6 @@ export default function Form() {
                     <SearchField />
                     <div>
                         <h3 onClick={(e) => geoFindMe(e)}>Click Here To Add Your Current Latitude and Longitude!</h3>
-                        <ul>
-                            <li>latitude: {thePlace.latLng.lat}</li>
-                            <li>longitude: {thePlace.latLng.lng}</li>
-                        </ul>
                     </div>
 
                 </form>
