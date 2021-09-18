@@ -30,7 +30,7 @@ None
 
  
  ## Usage 
- Follow deployed [link](https://gentle-forest-57740.herokuapp.com/dashboard)
+ Follow deployed [link](https://tripsight.herokuapp.com/)
 
  
  ## License 
