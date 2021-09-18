@@ -31,8 +31,8 @@ app.use(express.json());
 // app.use(cors({
 //     origin: `http://localhost:${PORT}`
 // }))
-console.log('nodeENV', process.env.NODE_ENV);
-console.log('path',path);
+//console.log('nodeENV', process.env.NODE_ENV);
+//console.log('path',path);
 if (process.env.NODE_ENV === 'production') {
      //app.use(express.static(path.join(__dirname, '../client/build')));
      app.use(express.static(path.join(__dirname, '../client/build')));
