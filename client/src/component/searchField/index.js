@@ -30,30 +30,45 @@ const SearchField = () => {
             }
         })
 
-    useEffect(() => {
-        const handleDebounce = setTimeout(async () => {
-            try {
-                if (!searchValue) {
-                    return
-                }
+    // useEffect(() => {
+    //     const handleDebounce = setTimeout(async () => {
+    //         try {
+    //             if (!searchReq) {
+    //                 return
+    //             }
 
-                const nextPredictions = await googleAutocomplete(searchValue)
-                setPredictions(nextPredictions)
-            } catch (e) {
-                console.error(e)
-            }
-        }, 400)
+    //             const nextPredictions = await googleAutocomplete(searchValue)
+    //             setPredictions(nextPredictions)
+    //         } catch (e) {
+    //             console.error(e)
+    //         }
+    //     }, 400)
 
-        return () => {
-            clearTimeout(handleDebounce)
-        }
-    }, [searchValue, 400])
+    //     return () => {
+    //         clearTimeout(handleDebounce)
+    //     }
+    // }, [searchValue, 400]);
+
     const handlePredictionSelection = (e, prediction) => {
         e.preventDefault();
         setSelectedPrediction(prediction?.structured_formatting?.main_text);
         setSearchValue(prediction?.structured_formatting?.main_text);
         thePlace.setPlace(prediction?.structured_formatting?.main_text);
         thePlace.getPlaceLatLng(prediction?.structured_formatting?.main_text)
+        // setSearchReq("");
+        setPredictions([]); 
+    }
+
+    const handleSearch = async () => {
+        console.log(searchValue);
+        // setSearchReq(searchValue);
+        // console.log(searchReq);
+        try {
+            const nextPredictions = await googleAutocomplete(searchValue)
+            setPredictions(nextPredictions)
+        } catch (e) {
+            console.error(e)
+        }
     }
 
 
@@ -64,11 +79,15 @@ const SearchField = () => {
                 <input
                     id={style.heroSearchForm}
                     name="predictionSearch"
-                    placeholder="Choose a place!"
+                    placeholder="Find A Place!"
                     value={searchValue}
                     onChange={e => setSearchValue(e.target.value)}
                     autocomplete="off"
                 />
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    handleSearch();
+                    }}>Find Place</button>
                 <ul>
                     {predictions?.map(prediction => (
                         <li key={prediction?.place_id}>

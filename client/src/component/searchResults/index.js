@@ -24,9 +24,6 @@ const SearchResults = () => {
         <Map />
         <h1>Search Again</h1>
         <SearchField />
-        <Link to="/results"><input id={style.heroSearchButton} type="submit" value="Search" onClick={() => {
-                thePlace.getPlaceLatLng(thePlace.place)
-            }} /></Link>
       </div>
       <div className={style.searchContainer}>
         <h1>Search Results in {thePlace.place}</h1>
