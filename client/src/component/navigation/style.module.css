@@ -1,13 +1,66 @@
+.backgroundHero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  left: 5em;
+  right: 5rem;
+  top: 2rem;
+  position: none;
+  background: #ffc136;
+}
+
+.backgroundHero .navLogoContainer {
+  margin-top: 1rem;
+}
+
+.backgroundHero .navLogoContainer #sightLogo {
+  width: 168px;
+  height: 40px;
+}
+
+.backgroundHero .nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.backgroundHero .nav ul li {
+  font-size: 2rem;
+}
+
+.backgroundHero .nav ul li a {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  margin: 0rem 1.5rem;
+}
+
+.backgroundHero .nav ul li a:hover {
+  color: #ff784f;
+}
+
+.backgroundHero .nav ul li button {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  padding: 0.7rem 3rem;
+  background: #ffc136;
+  border-radius: 0.8rem;
+}
+
 .navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  position: absolute;
   left: 5em;
   right: 5rem;
   top: 2rem;
-  background-color: #ffc136;
+  position: absolute;
 }
 
 .navContainer .navLogoContainer {
@@ -28,19 +81,17 @@
   font-size: 2rem;
 }
 
-.navContainer .nav ul li:hover {
-  background: #ff784f;
-}
-
 .navContainer .nav ul li a {
   color: white;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.1rem;
   text-decoration: none;
-  padding: 0.7rem 3rem;
-  background: #ffc136;
-  border-radius: 0.8rem;
+  margin: 0rem 1.5rem;
+}
+
+.navContainer .nav ul li a:hover {
+  color: #ff784f;
 }
 
 .navContainer .nav ul li button {

@@ -69,4 +69,34 @@
   text-align: center;
   width: 25%;
 }
+
+@media screen and (max-width: 1024px) {
+  .dashContainer {
+    margin: 0rem;
+    width: 100%;
+  }
+  .dashContainer .dashHeader {
+    display: flex;
+    flex-direction: column;
+  }
+  .dashContainer .dashHeader div a button {
+    float: none;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .dashContainer .dashHeader .lists {
+    display: flex;
+    flex-direction: column;
+  }
+  .dashContainer .dashHeader .lists .postList {
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+  .dashContainer .dashHeader .lists .favorites {
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=style.module.css.map */

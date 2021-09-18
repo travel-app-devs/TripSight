@@ -1,9 +1,9 @@
 .formContainer {
-  padding: 10rem;
+  padding: 0rem;
 }
 
 .formContainer .form {
-  padding: 3%;
+  padding: 7%;
   align-items: center;
   background: #69a2ef;
   font-family: "Roboto", sans-serif;
@@ -21,6 +21,8 @@
   padding: .4rem;
   color: white;
   box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+  font-size: 2rem;
+  padding: 1rem 2rem;
 }
 
 .formContainer .form .submitPost:hover {
@@ -44,6 +46,7 @@
   width: 100%;
   border: solid 0.1rem #dfd7d7;
   border-radius: .2rem;
+  height: 30px;
 }
 
 .formContainer .form div input:active {
@@ -97,11 +100,12 @@
 
 .formContainer .form .linksInput label {
   display: block;
+  margin-top: 0rem;
 }
 
 .formContainer .form .linksInput .links {
   display: block;
-  width: 150%;
+  width: 120%;
 }
 
 .formContainer .form .postInput {
@@ -110,5 +114,35 @@
 
 .formContainer .form .postInput label {
   display: block;
+}
+
+@media screen and (max-width: 1300px) {
+  .formContainer {
+    padding: 0rem;
+  }
+  .formContainer .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .formContainer .form .submitPost {
+    width: 100%;
+  }
+  .formContainer .form .formBlogInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .formContainer .form .formBlogInputs .titleInput {
+    width: 90%;
+  }
+  .formContainer .form .formBlogInputs .tagsInput {
+    width: 90%;
+  }
+  .formContainer .form .formBlogInputs .linksInput {
+    width: 77%;
+  }
+  .formContainer .form .formBlogInputs .postInput {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */

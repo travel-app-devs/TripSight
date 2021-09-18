@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Auth from '../../utils/auth'
 
 const Navigation = () => {
+  const background = window.location.pathname !== '/' ? style.backgroundHero : style.navContainer;
   const handleLogout = (event) => {
     event.preventDefault()
     Auth.logout()
@@ -12,7 +13,7 @@ const Navigation = () => {
     <li><Link to="/" className={style.logout} onClick={handleLogout}>Logout</Link></li> :
    <li><Link to="/login">Login</Link></li>
   return (
-    <div className={style.navContainer}>
+    <div className={`${background}`}>
       <div className={style.navLogoContainer}>
         <Link to='/'><img id={style.sightLogo} src={tripSightLogo} /></Link>
       </div>

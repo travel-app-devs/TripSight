@@ -12,8 +12,8 @@ import PlaceContext from '../../context/PlaceContext';
 function Map() {
     const containerStyle = {
         // We can change this, just a stand-in
-        width: '800px',
-        height: '400px'
+        width: '100%',
+        height: '450px'
     };
     const { data } = useQuery(QUERY_ALLPOSTS);
     const [ activeMarker, setActiveMarker ] = useState();

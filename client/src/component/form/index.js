@@ -147,7 +147,7 @@ export default function Form() {
             <div className={style.formContainer}>
                 <form className={style.form}>
                     <input className={style.submitPost} type='submit' onClick={handleFormSubmit} value='Publish Post'></input>
-                    <div>
+                    <div className={style.formBlogInputs}>
                         <div className={style.titleInput}>
                             <label htmlFor='title'>Title</label>
                             <input id='title' name='titleInput' onChange={handleChangeTitle} value={titleInput} type='text'></input>

@@ -1,12 +1,12 @@
 .searchResultsContainer {
-  padding-top: 2rem;
-  padding-left: 5rem;
-  width: 65%;
+  padding-top: 0rem;
+  padding-left: 0rem;
+  width: 100%;
   margin: auto;
 }
 
 .searchResultsContainer .searchFieldContainer {
-  margin-top: 10rem;
+  margin-top: 0rem;
 }
 
 .searchResultsContainer .searchFieldContainer h1 {
@@ -15,6 +15,11 @@
   letter-spacing: 1px;
   text-align: center;
   font-size: 4rem;
+}
+
+.searchResultsContainer .searchFieldContainer .resultSearchField {
+  width: 30%;
+  margin: auto;
 }
 
 .searchResultsContainer .searchContainer {
@@ -55,5 +60,27 @@
 
 .searchResultsContainer .searchContainer .searchResultsSection .searchSection button:hover {
   background: #ff784f;
+}
+
+.searchResultsContainer .searchContainer .searchResultsBlogs {
+  text-align: center;
+  text-decoration: none;
+}
+
+.searchResultsContainer .searchContainer .searchResultsBlogs h3 {
+  font-size: 2.5rem;
+  color: black;
+  text-decoration: none;
+}
+
+.searchResultsContainer .searchContainer .searchResultsBlogs h3:hover {
+  color: #ff784f;
+}
+
+@media screen and (max-width: 500px) {
+  .searchResultsContainer .searchFieldContainer .resultSearchField {
+    width: 90%;
+    margin: auto;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */

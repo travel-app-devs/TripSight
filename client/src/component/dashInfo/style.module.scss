@@ -11,7 +11,7 @@
         text-align: left;
         background-color: white;
 
-    
+
         .welcome {
             margin: 1rem;
             color: black;
@@ -22,7 +22,7 @@
                 text-decoration: none;
 
             }
-    
+
             #username {
                 color: $orange;
 
@@ -31,10 +31,10 @@
                 }
             }
 
-            
-    
+
+
         }
-    
+
         button {
             font-family: $font;
             margin-top: -3.9rem;
@@ -45,11 +45,11 @@
             color: white;
             box-shadow: .1rem .2rem .2rem rgb(235, 80, 69);
             float: right;
-    
+
             &:hover {
                 background-color: rgb(246, 101, 91);
             }
-    
+
             &:active {
                 box-shadow: none;
                 padding: 0.5rem;
@@ -80,4 +80,39 @@
     }
 
 
+}
+
+@include media-small-lg {
+    .dashContainer {
+        margin: 0rem;
+        width: 100%;
+
+        .dashHeader {
+            display: flex;
+            flex-direction: column;
+
+            div a button {
+                float: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            .lists{
+                display: flex;
+                flex-direction: column;
+
+                .postList {
+                    margin-top: 2rem;
+                    text-align: center;
+                    width: 100%;
+                }
+    
+                .favorites {
+                    margin-top: 2rem;
+                    text-align: center;
+                    width: 100%;
+    
+                }
+            }
+        }
+    }
 }

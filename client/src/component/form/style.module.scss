@@ -1,10 +1,10 @@
 @import "../../variables/variables.scss";
 
 .formContainer {
-    padding: 10rem;
+    padding: 0rem;
 
     .form {
-        padding: 3%;
+        padding: 7%;
         align-items: center;
         background: $blue;
         font-family: $font;
@@ -21,6 +21,8 @@
             padding: .4rem;
             color: white;
             box-shadow: .1rem .2rem .2rem rgb(235, 80, 69);
+            font-size: 2rem;
+            padding: 1rem 2rem;
 
             &:hover {
                 background-color: rgb(246, 101, 91);
@@ -44,6 +46,7 @@
                 width: 100%;
                 border: solid .1rem rgb(223, 215, 215);
                 border-radius: .2rem;
+                height: 30px;
 
                 &:active {
                     border: solid .1rem $gray;
@@ -99,11 +102,12 @@
 
             label {
                 display:block;
+                margin-top: 0rem;
             }
 
             .links {
                 display: block;
-                width: 150%;
+                width: 120%;
             }
         }
 
@@ -116,5 +120,42 @@
         }
 
 
+    }
+}
+
+
+@include media-lg{
+    .formContainer{
+        padding: 0rem;
+        .form{
+            display:flex;
+            flex-direction: column;
+
+            .submitPost{
+                width:100%;
+            }
+
+            .formBlogInputs{
+                display:flex;
+                flex-direction: column;
+                width:100%;
+
+                .titleInput{
+                    width: 90%;
+                }
+
+                .tagsInput{
+                    width: 90%;
+                }
+
+                .linksInput{
+                    width: 77%;
+                }
+
+                .postInput{
+                    width: 90%;
+                }
+            }
+        }
     }
 }
