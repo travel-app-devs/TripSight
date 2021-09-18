@@ -15,6 +15,7 @@ import SearchResults from './pages/searchResults'
 import Dashboard from './pages/Dashboard'
 import NewPost from './pages/NewPost'
 import Navigation from './component/navigation'
+import Footer from './component/footer'
 import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
@@ -96,7 +97,7 @@ function App() {
           <Route exact path='/'>
             {/* <Header /> */}
             <Home />
-            {/* <Footer /> */}
+            <Footer />
           </Route>
           <Route exact path="/login">
             <Navigation />

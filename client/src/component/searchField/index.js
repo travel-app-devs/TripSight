@@ -5,6 +5,7 @@ import { get } from 'lodash';
 
 
 const SearchField = () => {
+    const backgroundTwo = window.location.pathname === '/' ? style.heroSearchResultButton : style.searchFieldResults;
     const [selectedPrediction, setSelectedPrediction] = useState({})
     const [searchValue, setSearchValue] = useState("");
     const thePlace = useContext(PlaceContext)
@@ -84,14 +85,14 @@ const SearchField = () => {
                     onChange={e => setSearchValue(e.target.value)}
                     autocomplete="off"
                 />
-                <button onClick={(e) => {
+                <button id={style.findPlaceBtn} onClick={(e) => {
                     e.preventDefault();
                     handleSearch();
-                    }}>Find Place</button>
-                <ul>
+                    }}>▶</button>
+                <ul className={`${backgroundTwo}`}>
                     {predictions?.map(prediction => (
                         <li key={prediction?.place_id}>
-                            <button
+                            <button 
                                 onClick={e => {
                                     handlePredictionSelection(e, prediction);
                                 }}

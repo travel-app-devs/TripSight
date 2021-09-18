@@ -57,3 +57,7 @@ None
  * GitHub: [rudie-g](https://github.com/rudie-g)
 
  * Email: rauoldm@gmail.com
+
+  * GitHub: [itiskchengs](https://github.com/itiskchengs)
+
+ * Email: itskcheng@gmail.com

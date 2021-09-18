@@ -71,5 +71,13 @@
 @include media-lg {
     .viewPostContainer {
         flex-direction: column;
+
+        .viewPostImageContainer {
+               
+
+            img{
+                width: 100%;
+            }
+        }
     }
 }

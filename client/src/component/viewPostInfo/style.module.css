@@ -64,5 +64,8 @@
   .viewPostContainer {
     flex-direction: column;
   }
+  .viewPostContainer .viewPostImageContainer img {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */

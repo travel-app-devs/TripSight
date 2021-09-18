@@ -1,16 +1,14 @@
 @import "../../variables/variables.scss";
-
-
-.navContainer {
+.backgroundHero{
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    position: absolute;
     left: 5em;
     right: 5rem;
     top: 2rem;
-    background-color: $yellow;
+    position: none;
+    background: $yellow; 
 
     .navLogoContainer {
         margin-top: 1rem;
@@ -29,11 +27,19 @@
             li {
                 font-size: 2rem;
 
-                &:hover {
-                    background: $orange;
-                }
-
                 a {
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: $regular;
+                    letter-spacing: 0.1rem;
+                    text-decoration: none;
+                    margin: 0rem 1.5rem;
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+                button {
                     color: $white;
                     text-transform: uppercase;
                     font-weight: $regular;
@@ -42,6 +48,50 @@
                     padding: 0.7rem 3rem;
                     background: $yellow;
                     border-radius: 0.8rem;
+
+                }
+            }
+        }
+    }
+}
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    left: 5em;
+    right: 5rem;
+    top: 2rem;
+    position: absolute;
+
+    .navLogoContainer {
+        margin-top: 1rem;
+
+        #sightLogo {
+            width: 168px;
+            height: 40px;
+        }
+    }
+
+    .nav {
+        ul {
+            list-style-type: none;
+            display: flex;
+
+            li {
+                font-size: 2rem;
+
+                a {
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: $regular;
+                    letter-spacing: 0.1rem;
+                    text-decoration: none;
+                    margin: 0rem 1.5rem;
+
+                    &:hover {
+                        color:$orange
+                    }
 
                 }
                 button {

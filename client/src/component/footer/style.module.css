@@ -1,0 +1,14 @@
+.footerContainer {
+  background: #ffc136;
+  margin: 0;
+  padding: 0.5rem 0rem;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerContainer h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+/*# sourceMappingURL=style.module.css.map */

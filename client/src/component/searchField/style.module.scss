@@ -3,6 +3,7 @@
 .heroForm {
     width: 100%;
     text-align: center;
+
     input {
         border: none;
         border-radius: 0.8rem;
@@ -18,7 +19,7 @@
     }
 
     #heroSearchForm {
-        width: 65%;
+        width: 75%;
         height: 4rem;
         border: 2px solid $black;
 
@@ -27,16 +28,73 @@
         }
     }
 
-    #heroSearchButton {
-        width: 28%;
-        margin-left: 1rem;
+    #findPlaceBtn {
+        width: 10%;
         background: $black;
         color: $white;
         font-size: 1.5rem;
         font-family: $font;
         font-weight: $regular;
         text-transform: uppercase;
-        height: 4.7rem;
+        height: 4.5rem;
+        border-radius: 0.8rem;
+        border: none;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+
+    .searchFieldResults{
+        margin: 0rem;
+        padding: 0rem;
+        background: $yellow;
+        border-radius: 0.8rem;
+        width: 78%;
+        margin: auto;
+        margin-right: 9.5rem;
+        li{
+            list-style-type: none;
+            text-align: left;
+            padding: 0.5rem 0rem;
+
+            &:hover{
+                background: $orange;
+            }
+            
+            button{
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                font-size: 1.5rem;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .heroSearchResultButton{
+        margin: 0rem;
+        padding: 0rem;
+        background: $white;
+        border-radius: 0.8rem;
+        width: 78%;
+        margin: auto;
+        margin-right: 8.7rem;
+        li{
+            list-style-type: none;
+            text-align: left;
+            padding: 0.5rem 0rem;
+
+            &:hover{
+                background: $yellow;
+            }
+            
+            button{
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                font-size: 1.5rem;
+                line-height: 1.5;
+            }
+        }
     }
 }
 
@@ -58,9 +116,14 @@
             height: 3.8rem;
         }
 
-        #heroSearchButton {
-            width: 30%;
-            height: 4rem;
+        .searchFieldResults{
+            margin: 0rem;
+            padding: 0rem;
+            background: $yellow;
+            border-radius: 0.8rem;
+            width: 78%;
+            margin: auto;
+            margin-right: 7rem;   
         }
     }
 }
@@ -81,13 +144,8 @@
         }
 
         #heroSearchForm {
-            width: 50%;
+            width: 75%;
             height: 3.8rem;
-        }
-
-        #heroSearchButton {
-            width: 30%;
-            height: 4rem;
         }
     }
 }

@@ -23,10 +23,13 @@ const SearchResults = () => {
       <div className={style.searchFieldContainer}>
         <Map />
         <h1>Search Again</h1>
-        <SearchField />
+        <div className={style.resultSearchField}>
+          <SearchField />
+        </div>
       </div>
       <div className={style.searchContainer}>
         <h1>Search Results in {thePlace.place}</h1>
+        <div className={style.searchResultsBlogs}>
         {postList.map(({ _id, title, place }) => (
           <Link to={`/viewpost/${_id}`} key={_id}>
                   <div>
@@ -34,6 +37,7 @@ const SearchResults = () => {
                     </div>
                 </Link>
         ))}
+        </div>
       </div>
     </div>
   );

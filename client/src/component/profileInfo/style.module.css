@@ -14,6 +14,24 @@
   display: inline-block;
   align-items: center;
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashContainer .dashHeader .profileInfo input {
+  width: 50%;
+}
+
+.dashContainer .dashHeader .profileInfo label {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
+.dashContainer .dashHeader .profileInfo textarea {
+  width: 50%;
+  height: 200px;
 }
 
 .dashContainer .dashHeader .welcome {
@@ -94,5 +112,26 @@
   font-size: large;
   text-align: center;
   width: 25%;
+}
+
+@media screen and (max-width: 1300px) {
+  .dashContainer {
+    margin: 0rem;
+  }
+  .dashContainer .welcome {
+    padding-bottom: 7rem;
+  }
+  .dashContainer .dashHeader {
+    margin: 5rem;
+    text-align: left;
+    background-color: white;
+  }
+  .dashContainer .dashHeader .profileInfo input {
+    width: 90%;
+    margin-top: 4rem;
+  }
+  .dashContainer .dashHeader .profileInfo textarea {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */
