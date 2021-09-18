@@ -2,20 +2,27 @@
   background-color: #69a2ef;
   margin-right: 1rem;
   color: white;
-  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
-          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+  box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+  text-decoration: none;
 }
 
-a {
-  color:white !important;
-  text-decoration: none !important;
+.postDiv a {
+  color: white;
+  text-decoration: none;
 }
 
-a:hover {
-  color: rgb(226, 224, 224) !important;
+.postDiv a h3 {
+  color: white;
+  text-decoration: none;
 }
 
-.postDiv h3 {
+.postDiv a {
+  color: white;
+  text-decoration: none;
+}
+
+.postDiv a .postTitle {
+  color: white;
   padding: .5rem;
 }
 

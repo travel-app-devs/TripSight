@@ -1,8 +1,7 @@
 .dashContainer {
   margin: 10rem;
   border: solid 0.1rem #e9e6e6;
-  -webkit-box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
-          box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
+  box-shadow: 0.1rem 0.5rem 0.5rem #b3b3d6;
 }
 
 .dashContainer .dashHeader {
@@ -38,8 +37,7 @@
   border-radius: .2rem;
   padding: 1rem;
   color: white;
-  -webkit-box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
-          box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
+  box-shadow: 0.1rem 0.2rem 0.2rem #eb5045;
   float: right;
 }
 
@@ -48,19 +46,14 @@
 }
 
 .dashContainer .dashHeader button:active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0.5rem;
 }
 
 .dashContainer .dashHeader .lists {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 1rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .dashContainer .dashHeader .lists .postList {

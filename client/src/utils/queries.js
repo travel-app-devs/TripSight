@@ -222,7 +222,10 @@ export const QUERY_POSTTWO = gql`
   query post($_id: ID!) {
     post(_id: $_id) {
       title
-
+      textBody
+      description
+      titleImageLink
+      postVid
     }
   }
 `;

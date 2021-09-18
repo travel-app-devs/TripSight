@@ -1,0 +1,68 @@
+.viewPostContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10rem auto 0rem auto;
+  width: 75%;
+  flex-direction: column;
+}
+
+.viewPostContainer .viewPostTextSection {
+  margin: 0rem 5rem 2rem 5rem;
+}
+
+.viewPostContainer .viewPostTextSection h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+.viewPostContainer .viewPostTextSection p {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.viewPostContainer .viewPostImageContainer {
+  margin: 0rem 5rem;
+}
+
+.viewPostContainer .viewPostImageContainer .viewPostImageSection {
+  margin: 0rem 0rem;
+}
+
+.viewPostVideoContainer {
+  width: 69%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+
+.viewPostVideoContainer #videoPlayer {
+  width: 100%;
+  height: 700px;
+}
+
+@media screen and (max-width: 500px) {
+  .viewPostContainer {
+    width: 100%;
+  }
+  .viewPostContainer .viewPostTextSection h2 {
+    font-size: 3rem;
+  }
+  .viewPostContainer .viewPostImageSection {
+    padding: 0rem;
+    margin: auto;
+  }
+  .viewPostVideoContainer {
+    width: 86%;
+  }
+  .viewPostVideoContainer #videoPlayer {
+    width: 100%;
+    height: 100vw;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .viewPostContainer {
+    flex-direction: column;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */

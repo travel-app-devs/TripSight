@@ -1,0 +1,75 @@
+@import "../../variables/variables.scss";
+
+.viewPostContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10rem auto 0rem auto;
+    width: 75%;
+    flex-direction: column;
+
+    .viewPostTextSection {
+        margin: 0rem 5rem 2rem 5rem;
+
+        h2 {
+            font-size: 4rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1.8rem;
+            line-height: 1.5;
+        }
+    }
+
+    .viewPostImageContainer {
+        margin: 0rem 5rem;
+        .viewPostImageSection {
+            margin: 0rem 0rem;
+        }
+    }
+}
+
+.viewPostVideoContainer {
+    width: 69%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+
+    #videoPlayer {
+        width: 100%;
+        height: 700px;
+    }
+}
+
+@include media-sm {
+    .viewPostContainer {
+        width: 100%;
+
+        .viewPostTextSection {
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .viewPostImageSection {
+            padding: 0rem;
+            margin: auto;
+        }
+    }
+
+    .viewPostVideoContainer {
+        width: 86%;
+
+        #videoPlayer {
+            width: 100%;
+            height: 100vw;
+        }
+    }
+}
+
+@include media-lg {
+    .viewPostContainer {
+        flex-direction: column;
+    }
+}
