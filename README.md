@@ -4,7 +4,7 @@
  
  ## Description 
  This is a MERN application hosted on heroku that allows the user to create an account, post blogs and search other users blogs. It is a one stop shop for all things travel content, pictures for planning future travel or just getting your fix of far off places!
- [link to deployed application](https://gentle-forest-57740.herokuapp.com/dashboard)
+ [link to deployed application](https://tripsight.herokuapp.com/)
 
  ![preview image](client/public/previewImage1.png)
  ![preview image 2](client/public/previewImage2.png)
@@ -30,7 +30,7 @@ None
 
  
  ## Usage 
- Follow deployed [link](https://gentle-forest-57740.herokuapp.com/dashboard)
+ Follow deployed [link](https://tripsight.herokuapp.com/)
 
  
  ## License 
@@ -57,3 +57,7 @@ None
  * GitHub: [rudie-g](https://github.com/rudie-g)
 
  * Email: rauoldm@gmail.com
+
+* GitHub: [itiskcheng](https://github.com/rudie-g)
+
+ * Email: itskcheng@gmail.com
