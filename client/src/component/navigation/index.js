@@ -8,7 +8,6 @@ const Navigation = () => {
     event.preventDefault()
     Auth.logout()
   }
-  console.log(Auth.loggedIn());
   const logButton = Auth.loggedIn() ? 
     <li><Link to="/" className={style.logout} onClick={handleLogout}>Logout</Link></li> :
    <li><Link to="/login">Login</Link></li>

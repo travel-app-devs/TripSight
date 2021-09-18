@@ -1,6 +1,5 @@
 import style from './style.module.css';
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from "react-router-dom";
 import PlaceContext from '../../context/PlaceContext';
 import { get } from 'lodash';
 
@@ -50,9 +49,11 @@ const SearchField = () => {
         }
     }, [searchValue, 400])
     const handlePredictionSelection = (e, prediction) => {
-        e.preventDefault()
-        setSelectedPrediction(prediction?.structured_formatting?.main_text)
-        setSearchValue(prediction?.structured_formatting?.main_text)
+        e.preventDefault();
+        setSelectedPrediction(prediction?.structured_formatting?.main_text);
+        setSearchValue(prediction?.structured_formatting?.main_text);
+        thePlace.setPlace(prediction?.structured_formatting?.main_text);
+        thePlace.getPlaceLatLng(prediction?.structured_formatting?.main_text)
     }
 
 
@@ -63,7 +64,7 @@ const SearchField = () => {
                 <input
                     id={style.heroSearchForm}
                     name="predictionSearch"
-                    placeholder="Where is your next destination?"
+                    placeholder="Choose a place!"
                     value={searchValue}
                     onChange={e => setSearchValue(e.target.value)}
                     autocomplete="off"
@@ -72,7 +73,9 @@ const SearchField = () => {
                     {predictions?.map(prediction => (
                         <li key={prediction?.place_id}>
                             <button
-                                onClick={e => handlePredictionSelection(e, prediction)}
+                                onClick={e => {
+                                    handlePredictionSelection(e, prediction);
+                                }}
                                 onKeyDown={e => handlePredictionSelection(e, prediction)}
                             >
                                 {prediction?.structured_formatting?.main_text || "Not found"}
@@ -81,10 +84,6 @@ const SearchField = () => {
                     ))}
                 </ul>
             </form>
-            <Link to="/results"><input id={style.heroSearchButton} type="submit" value="Search" onClick={() => {
-                thePlace.setPlace(selectedPrediction)
-                thePlace.getPlaceLatLng(selectedPrediction)
-            }} /></Link>
         </div>
     )
 }

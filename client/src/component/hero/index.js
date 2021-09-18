@@ -1,8 +1,11 @@
 import style from "./style.module.css";
 import SearchField from "../searchField";
+import React, { useContext } from 'react';
+import { Link } from "react-router-dom";
+import PlaceContext from '../../context/PlaceContext';
 //import hero from "../../assets/images/hero-image.png";
 
-const Hero = ({getPlaceLatLng}) => {
+const Hero = () => {
   /*
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState({
@@ -37,14 +40,18 @@ const Hero = ({getPlaceLatLng}) => {
     setAddress(addressInput);
   }
   */
+ const thePlace = useContext(PlaceContext);
   return (
     <div className={style.heroContainer}>
       <div className={style.heroTextContainer}>
           <div className={style.heroTextSection}>
               <h1 className={style.heroTextBigHeader}>TripSight</h1>
           <div className={style.heroDescriptionContainer}>
-              <p className={style.heroTextDescription}>Find travel recommendations from real people that have been there previously!</p>
-              <SearchField getPlaceLatLng={getPlaceLatLng} />
+              <p className={style.heroTextDescription}>Find travel experiences from real people, or make your own!</p>
+              <SearchField />
+              <Link to="/results"><input id={style.heroSearchButton} type="submit" value="Search" onClick={() => {
+                thePlace.getPlaceLatLng(thePlace.place);
+            }} /></Link>
           </div>
           </div>
       </div>

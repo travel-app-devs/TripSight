@@ -10,20 +10,23 @@ import { Link } from "react-router-dom";
 
 const SearchResults = () => {
   const thePlace = useContext(PlaceContext);
-  console.log("This Must Be The Place.place: ", thePlace.place)
+  console.log("This Must Be The Place.place in searchResults:", thePlace.place)
   const { data } = useQuery(thePlace.QUERY_PLACEPOSTS, {
     variables: {
       place: thePlace.place
     }
   });
   const postList = data?.placePosts || [];
-  console.log(postList);
+  console.log("postList in searchResults:", postList);
   return (
     <div className={style.searchResultsContainer}>
       <div className={style.searchFieldContainer}>
         <Map />
         <h1>Search Again</h1>
         <SearchField />
+        <Link to="/results"><input id={style.heroSearchButton} type="submit" value="Search" onClick={() => {
+                thePlace.getPlaceLatLng(thePlace.place)
+            }} /></Link>
       </div>
       <div className={style.searchContainer}>
         <h1>Search Results in {thePlace.place}</h1>
