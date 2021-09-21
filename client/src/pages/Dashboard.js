@@ -13,10 +13,10 @@ import Auth from '../utils/auth';
 const Dashboard = () => {
   const userDataContext = useContext(UserContext);
   const postsDataContext = useContext(PostsContext);
-  userDataContext.setUserData(Auth.getProfile().data)
-  console.log('userprofile', userDataContext.userData)
-  postsDataContext.setUserPosts(useQuery(QUERY_USERPOSTS, { variables: {userId: userDataContext.userData._id }}));
-  userDataContext.setUserData(useQuery(QUERY_USER, { variables: {_id: userDataContext.userData._id}}));
+  const { loading: userPostsLoading, data: userPosts } = useQuery(QUERY_USERPOSTS, { variables: {userId: userProfile._id }});
+  const { loading: userLoading , data: user } = useQuery(QUERY_USER, { variables: {_id: userProfile._id}});  console.log('userprofile', userDataContext.userData)
+  postsDataContext.setUserPosts(userPosts);
+  userDataContext.setUserData(user);
 
   console.log('query data', user, userPosts)
 

@@ -18,6 +18,7 @@ function Map({ userPosts }) {
     const thePlace = useContext(PlaceContext);
     const [ activeMarker, setActiveMarker ] = useState();
     console.log("This Must Be The Place: ", thePlace.place)
+    const { data } = useQuery(QUERY_ALLPOSTS);
     const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
             return;
@@ -25,7 +26,6 @@ function Map({ userPosts }) {
         setActiveMarker(marker);
     };
     if (!userPosts) {
-        const { data } = useQuery(QUERY_ALLPOSTS);
         const postList = data?.allPosts || [];
         console.log(postList);
         return (

@@ -20,6 +20,8 @@ import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
 import PlaceContext from './context/PlaceContext';
+import UserContext from './context/UserContext';
+import PostsContext from './context/PostsContext';
 import { QUERY_PLACEPOSTS, QUERY_ALLPOSTS, QUERY_THISUSERPOSTS } from './utils/queries';
 
 
