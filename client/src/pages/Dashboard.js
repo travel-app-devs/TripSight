@@ -30,6 +30,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Map userPosts={userPosts} />
       <DashInfo user={user.user} userPosts={userPosts.userPosts}/>
 
       </div>
