@@ -1,11 +1,11 @@
 import style from './style.module.css'
 import { Link } from 'react-router-dom'
 import PostList from '../../component/postList'
-const DashInfo = ({ user, userPosts }) => {
+const DashInfo = ({ userData, userPosts }) => {
     return (
         <div className={style.dashContainer}>
             <div className={style.dashHeader}>
-                <h1 className={style.welcome}>Welcome, <Link to={`/profile/${user._id}`}><span id={style.username}>{user.username}</span></Link></h1>
+                <h1 className={style.welcome}>Welcome, <Link to={`/profile/${userData._id}`}><span id={style.username}>{userData.username}</span></Link></h1>
                 <div className={style.button}>
                     <Link to="/newpost" ><button >Create New Post</button></Link>
                 </div>
@@ -14,7 +14,7 @@ const DashInfo = ({ user, userPosts }) => {
                         <h3>Your Posts</h3>
                         <PostList
                             userPosts={userPosts}
-                            title={`${user.email}'s Posts`}
+                            title={`${userData.email}'s Posts`}
                             showTitle={false}
                             showUsername={false}
                             type={true}
@@ -23,8 +23,8 @@ const DashInfo = ({ user, userPosts }) => {
                     <div className={style.favorites}>
                         <h3>Your Favorites</h3>
                         <PostList
-                            userPosts={user.favorites}
-                            title={`${user.email}'s Posts`}
+                            userPosts={userData.favorites}
+                            title={`${userData.email}'s Posts`}
                             showTitle={false}
                             showUsername={false}
                             type={false}
