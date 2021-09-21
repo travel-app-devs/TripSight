@@ -10,7 +10,7 @@ import { printIntrospectionSchema } from 'graphql';
 
 
 
-function Map(props) {
+function Map({ userPosts }) {
     const containerStyle = {
         // We can change this, just a stand-in
         width: '100%',
@@ -25,7 +25,7 @@ function Map(props) {
         }
         setActiveMarker(marker);
     };
-    if (!props.userPosts) {
+    if (!userPosts) {
         const { data } = useQuery(QUERY_ALLPOSTS);
         const postList = data?.allPosts || [];
         console.log(postList);

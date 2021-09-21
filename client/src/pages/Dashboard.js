@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import Map from '../component/map';
 
 import DashInfo from '../component/dashInfo'
 
