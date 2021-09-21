@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, setContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Map from '../component/map';

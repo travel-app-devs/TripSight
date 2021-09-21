@@ -20,7 +20,7 @@ import Viewpost from './pages/viewPost'
 import Profile from './pages/Profile'
 import Auth from './utils/auth'
 import PlaceContext from './context/PlaceContext';
-import { QUERY_PLACEPOSTS } from './utils/queries';
+import { QUERY_PLACEPOSTS, QUERY_ALLPOSTS, QUERY_THISUSERPOSTS } from './utils/queries';
 
 
 // Construct our main GraphQL API endpoint
@@ -54,6 +54,8 @@ function App() {
     lat: 0.0000,
     lng: 0.0000
   })
+  const [userPosts, setUserPosts] = useState([]);
+  const [userData, setUserData] = useState({});
   const getPlaceLatLng = (address) => {
     let latitude, longitude, placeId;
     new window.google.maps.Geocoder().geocode(
@@ -76,66 +78,70 @@ function App() {
       }
     );
   };
-  const  [place, setPlace] = useState('');
+  const [place, setPlace] = useState('');
   useEffect(() => {
-    if(!document.querySelector("#here")) {
-    const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
-    googleMapScript.async = true;
-    googleMapScript.id = "here";
-    window.document.body.appendChild(googleMapScript);
+    if (!document.querySelector("#here")) {
+      const googleMapScript = document.createElement("script");
+      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
+      googleMapScript.async = true;
+      googleMapScript.id = "here";
+      window.document.body.appendChild(googleMapScript);
     }
   }, []);
   return (
     <ApolloProvider client={client}>
-      <PlaceContext.Provider value={{place: place, latLng: latLng, setLatLng: setLatLng, getPlaceLatLng: getPlaceLatLng, setPlace: setPlace, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS}}>
-          <Router>
-            <div className="App">
-              <Link to='/'></Link>
+      <PlaceContext.Provider value={{ place: place, latLng: latLng, setLatLng: setLatLng, getPlaceLatLng: getPlaceLatLng, setPlace: setPlace, QUERY_PLACEPOSTS: QUERY_PLACEPOSTS }}>
+        <PostsContext.Provider value={{ userPosts: userPosts, setUserPosts: setUserPosts, QUERY_ALLPOSTS: QUERY_ALLPOSTS }}>
+          <UserContext.Provider value={{ userData: userData, setUserData: setUserData, QUERY_THISUSERPOSTS: QUERY_THISUSERPOSTS }}>
+            <Router>
+              <div className="App">
+                <Link to='/'></Link>
 
-        <Switch>
-          <Route exact path='/'>
-            {/* <Header /> */}
-            <Home />
-            <Footer />
-          </Route>
-          <Route exact path="/login">
-            <Navigation />
-            {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Navigation />
-            <Signup />
-          </Route>
-          <Route exact path="/results">
-            <Navigation />
-            <SearchResults />
-          </Route>
-          <Route exact path="/dashboard">
-            <Navigation />
-            <Dashboard />
-          </Route>
-          <Route exact path="/newpost">
-            <Navigation />
-            <NewPost />
-          </Route>
-          <Route exact path="/viewpost/:postId">
-            <Navigation />
-            <Viewpost />
-          </Route>
-          <Route exact path="/me">
-            <Profile />
-          </Route>
-          <Route exact path="/profile/:userId">
-            <Navigation />
-            <Profile />
-          </Route>
-        </Switch>
-            </div>
-          </Router>
+                <Switch>
+                  <Route exact path='/'>
+                    {/* <Header /> */}
+                    <Home />
+                    <Footer />
+                  </Route>
+                  <Route exact path="/login">
+                    <Navigation />
+                    {/* {Auth.loggedIn ? <Redirect to="/dashboard" /> : <Login />} */}
+                    <Login />
+                  </Route>
+                  <Route exact path="/signup">
+                    <Navigation />
+                    <Signup />
+                  </Route>
+                  <Route exact path="/results">
+                    <Navigation />
+                    <SearchResults />
+                  </Route>
+                  <Route exact path="/dashboard">
+                    <Navigation />
+                    <Dashboard />
+                  </Route>
+                  <Route exact path="/newpost">
+                    <Navigation />
+                    <NewPost />
+                  </Route>
+                  <Route exact path="/viewpost/:postId">
+                    <Navigation />
+                    <Viewpost />
+                  </Route>
+                  <Route exact path="/me">
+                    <Profile />
+                  </Route>
+                  <Route exact path="/profile/:userId">
+                    <Navigation />
+                    <Profile />
+                  </Route>
+                </Switch>
+              </div>
+            </Router>
+          </UserContext.Provider>
+        </PostsContext.Provider>
       </PlaceContext.Provider>
-      </ApolloProvider>
+    </ApolloProvider>
 
 
   );

@@ -5,7 +5,6 @@ import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/ap
 import { useQuery } from '@apollo/client';
 import { QUERY_ALLPOSTS } from "../../utils/queries";
 import PlaceContext from '../../context/PlaceContext';
-import { printIntrospectionSchema } from 'graphql';
 
 
 
