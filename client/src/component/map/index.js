@@ -9,7 +9,7 @@ import PlaceContext from '../../context/PlaceContext';
 
 
 
-function Map() {
+function Map({ userPosts }) {
     const containerStyle = {
         // We can change this, just a stand-in
         width: '100%',
@@ -26,7 +26,7 @@ function Map() {
         setActiveMarker(marker);
     };
 
-    const postList = data?.allPosts || [];
+    const postList = userPosts?.userPosts || data?.allPosts || [];
     console.log(postList);
     return (
             <GoogleMap
