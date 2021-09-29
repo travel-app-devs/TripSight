@@ -80,7 +80,7 @@ function App() {
   useEffect(() => {
     if(!document.querySelector("#here")) {
     const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6d25XL0PViXcyr-Erl3Gtg7SXYB0jRg&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDCi7Hfhimcn34O9PEyskN8f3EsJv4SkWg&libraries=places`;
     googleMapScript.async = true;
     googleMapScript.id = "here";
     window.document.body.appendChild(googleMapScript);

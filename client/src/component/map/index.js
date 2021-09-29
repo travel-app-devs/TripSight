@@ -9,7 +9,7 @@ import PlaceContext from '../../context/PlaceContext';
 
 
 
-function Map() {
+function Map({ userPosts }) {
     const containerStyle = {
         // We can change this, just a stand-in
         width: '100%',
@@ -25,8 +25,33 @@ function Map() {
         }
         setActiveMarker(marker);
     };
+    function geoFindMe() {
+        function success(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            thePlace.setLatLng({
+                lat: latitude,
+                lng: longitude
+            });
+            console.log(thePlace.latLng)
+        }
 
-    const postList = data?.allPosts || [];
+        function error() {
+            alert('Unable to retrieve your location');
+        }
+
+        if (!navigator.geolocation) {
+            alert('Geolocation is not supported by your browser');
+        } else {
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+    }
+    const postList = userPosts?.userPosts || data?.allPosts || [];
+    thePlace.setPlace(
+        userPosts.userPosts[0]?.place
+        || geoFindMe()
+        || 'Tokyo'
+    )
     console.log(postList);
     return (
             <GoogleMap
