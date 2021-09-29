@@ -64,6 +64,20 @@
     }
 }
 
+@include media-xs-small{
+    .heroContainer {
+
+        .heroTextContainer {
+
+            .heroTextBigHeader {
+                font-size: 6rem;
+                margin: auto;
+                width: 80%;
+            }
+        }
+    }
+}
+
 @include media-sm {
     .heroContainer {
 
