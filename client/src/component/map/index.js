@@ -48,8 +48,7 @@ function Map({ userPosts }) {
     }
     const postList = userPosts?.userPosts || data?.allPosts || [];
     thePlace.setPlace(
-        userPosts.userPosts[0]?.place
-        || geoFindMe()
+        geoFindMe()
         || 'Tokyo'
     )
     console.log(postList);
